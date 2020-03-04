@@ -179,7 +179,7 @@
 
 /* How_it_Work */
 .process_box {
-	border: 1px dashed #000;
+	border: 1px  #000;
 	text-align: center;
 	padding: 0px 30px 30px 30px;
 }
@@ -193,7 +193,7 @@
 	margin: 0 auto;
 	font-size: 45px;
 	border-radius: 50%;
-	border: 1px dashed #56C596;
+	border: 1px solid #1EC3E0;
 	transform: rotate(180deg);
 }
 .triangle_box img {
@@ -338,15 +338,15 @@
 
 /*video_sec*/
 .video_sec {
-	/* background: url(../images/bg_87.jpg); */
-	background: #56C596;
+	background: url(../images/bg_87.jpg);
+	background: #1EC3E0;
 	position: relative;
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 500px;
 }
 .bg-black {
-	background-color: #000;
+	/* background-color: #000; */
 }
 .opacity-extra-medium {
 	position: absolute;
@@ -364,7 +364,7 @@
 	padding: 30px 15px;
 }
 .bg_black {
-	background: #1d1d1d;
+	/* background: #1d1d1d; */
 }
 .margin_top {
 	margin-top: -250px;
@@ -499,7 +499,7 @@
 }
 
 .patient_head {
-	background: #1bbce8;
+	background: #1EC3E0;
 	position: relative;
 }
 .patient_head:before {

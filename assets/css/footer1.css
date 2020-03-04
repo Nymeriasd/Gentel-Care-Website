@@ -44,11 +44,11 @@ footer ul li {
 	background-repeat: no-repeat;
 	position: relative;
 	z-index: 1;
-	background-color: #56C596;
+	background-color: #1EC3E0;
 	color: #fff;
 }
 .main_footer__block::before {
-	background: #222;
+	/* background: #222; */
 	content: "";
 	height: 100%;
 	left: 0;

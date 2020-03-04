@@ -5,16 +5,16 @@
 nav.navbar.bootsnav, .main_nav ul ul li, .footer_logo ul li a:hover, .points_icon, .cons_man, .tparrows.tp-leftarrow:hover, .tparrows.tp-rightarrow:hover, .feature-box:before, .feature-box:after, .content:before, .content:after, .b-line, .social_team ul li a, .counter_box .single-fact .counter:before, .footer_logo ul li a:hover, .social-link__block a:after, .bg_black,
 .patient_head, .dots_style .owl-dots .owl-dot, .event_date, .post_title h3:before, .post_date, .section_tit:before, .section_tit:after, 
 .three_line, .three_line:before, .three_line:after, .header_tran .navigation .sub-nav, #header .stricky {
-  background: #56C596;
+  background: #29D3FD;
 }
 
 .middel-part__block::before, .middel-part__block .logo:after, .middel-part__block .logo, .main_nav ul ul li:hover {
-  background: #56C596;
+  background: #29D3FD;
 }
 
 @media (max-width: 992px) {
   .middel-part__block {
-    background:#56C596;
+    background:#29D3FD;
   }
 }
 /*
@@ -22,7 +22,7 @@ nav.navbar.bootsnav, .main_nav ul ul li, .footer_logo ul li a:hover, .points_ico
 */
 .top-info__block li i, .next_btn_style .owl-controls .owl-nav .owl-prev:hover, .next_btn_style .owl-controls .owl-nav .owl-next:hover, .team_detail span, .counter_box .single-fact .counter, .gallery-heading h4 a, .bg_Testimonial .owl-carousel .owl-controls .owl-nav .owl-prev:hover, .bg_Testimonial .owl-carousel .owl-controls .owl-nav .owl-next:hover, .link_footer ul li a:hover, .footer-latest-news .single-news span, .footer-latest-news .single-news h5 a:hover, .more_btn__block, .bor_top a,
 .header_tran .top-bar-section .top-social-icon .icons-hover-black a:hover, .header_tran .top_loction ul li a:hover, .header_tran .top_loction ul li a i, .color {
-  color: #56C596;
+  color: #29D3FD;
 }
 
 /*
@@ -30,7 +30,7 @@ nav.navbar.bootsnav, .main_nav ul ul li, .footer_logo ul li a:hover, .points_ico
 */
 .next_btn_style .owl-controls .owl-nav .owl-prev:hover, .next_btn_style .owl-controls .owl-nav .owl-next:hover, .bg_Testimonial .owl-carousel .owl-controls .owl-nav .owl-prev:hover, .bg_Testimonial .owl-carousel .owl-controls .owl-nav .owl-next:hover, .footer_logo ul li a:hover,
 .tparrows.tp-leftarrow:hover, .tparrows.tp-rightarrow:hover, .process_box {
-  border-color: #56C596;
+  border-color: #29D3FD;
 }
 
 /* INNER_PAGE */
@@ -47,21 +47,21 @@ a.btn.xplus-btn.pricing.active, .btn.xplus-btn, a.btn.xplus-btn.pricing:hover, .
 .ribbon.blue, .btn-default, .bar, .btn-default:hover, .color-switch .owl-controls .owl-page span, .tags li a, .shop .product-overlay div:hover,
 .nf-carousel-theme-top .owl-controls .owl-nav .owl-prev:hover, .nf-carousel-theme-top .owl-controls .owl-nav .owl-next:hover,
 .nf-carousel-theme .owl-controls .owl-nav .owl-prev, .nf-carousel-theme .owl-controls .owl-nav .owl-next {
-  background: #56C596;
+  background: #29D3FD;
 }
 
 .social_hover {
-  background: #56C596;
+  background: #29D3FD;
   /* The Fallback */
-  background: rgba(71, 156, 24, 0.8);
+  background: #29D3FD;
 }
 
 .bullet_round:before, .second_righ:before {
-  box-shadow: 0 0 6px 6px #56C596;
+  box-shadow: 0 0 6px 6px #29D3FD;
 }
 
 .skinoneplancolor, div .secondary_bg {
-  background: #56C596;
+  background: #29D3FD;
 }
 
 /*
@@ -75,7 +75,7 @@ a:focus, a:hover, .abt-box__content-link-arrow, .abt-box_link-arrow, .abt-box__c
 .ui-input-group > input:focus ~ label, .ui-input-group > textarea:focus ~ label, .color-primary, a.color-primary,
 .pricing-2 .price, .pricing-2 .currency-symbol, .price-blue--color, .big-font i, .contact-info .info li .icon,
 .contact .icon-circle, .nf-carousel-theme-top .owl-controls .owl-nav .owl-prev, .nf-carousel-theme-top .owl-controls .owl-nav .owl-next {
-  color: #56C596;
+  color: #29D3FD;
 }
 
 /*
@@ -89,13 +89,13 @@ a:focus, a:hover, .abt-box__content-link-arrow, .abt-box_link-arrow, .abt-box__c
 .contact-form input[type=text]:focus, .contact-form textarea:focus, .contact .icon-circle,
 .nf-carousel-theme-top .owl-controls .owl-nav .owl-prev, .nf-carousel-theme-top .owl-controls .owl-nav .owl-next,
 .nf-carousel-theme-top .owl-controls .owl-nav .owl-prev:hover, .nf-carousel-theme-top .owl-controls .owl-nav .owl-next:hover {
-  border-color: #56C596;
+  border-color: #29D3FD;
 }
 
 .team-member .inner-box .overlay-box:after, .ui-input-group > input:focus, .rightGrip:before, .leftGrip:before {
-  border-bottom-color: #56C596;
+  border-bottom-color: #29D3FD;
 }
 
 .ribbon:before, .ribbon:after {
-  border-top-color: #56C596;
+  border-top-color: #29D3FD;
 }

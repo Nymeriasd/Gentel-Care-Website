@@ -106,6 +106,10 @@ h6 {
 }
 h3, h4, h5, h6 {
 	font-family: 'Poppins', sans-serif;
+	/* margin-top: 30px; */
+}
+
+.margin_30 {
 	margin-top: 30px;
 }
 
@@ -751,7 +755,7 @@ img {
 	position: relative;
 	overflow: hidden;
 	margin: 10px 1%;
-	background: #133642;
+	background: #29D3FD;
 	text-align: center;
 	cursor: pointer;
 }
@@ -1058,7 +1062,7 @@ figure.effect-zoe:hover p.icon-links a:first-child {
 	top: 0;
 	height: 100%;
 	width: 0;
-	background: rgba(25, 169, 153, 0.56);
+	background: #29D3FD;
 	-webkit-transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
 	-ms-transition: all 0.4s ease 0s;
@@ -1426,34 +1430,34 @@ figure {
 	background: #FF4500;
 }
 .sidebar-widget .light-b-box {
-	background: #ADD8E6;
+	background: #29D3FD;
 }
 .sidebar-widget .black-box {
-	background: #000;
+	background: #29D3FD;
 }
 .sidebar-widget .darkmagenta-box {
-	background: #8B008B;
+	background: #29D3FD;
 }
 .sidebar-widget .darkturquoise-box {
-	background: #00CED1;
+	background: #29D3FD;
 }
 .sidebar-widget .Olive-box {
-	background: #00CED1;
+	background: #29D3FD;
 }
 .sidebar-widget .Orchid-box {
-	background: #DA70D6;
+	background: #29D3FD;
 }
 .sidebar-widget .purple-box {
-	background: #600080;
+	background: #29D3FD;
 }
 .sidebar-widget .darkturquoise-box {
-	background: #8B4513;
+	background: #29D3FD;
 }
 .sidebar-widget .magenta-box {
-	background: #FF00FF;
+	background: #29D3FD;
 }
 .sidebar-widget .SaddleBrown-box {
-	background: #8B4513;
+	background: #29D3FD;
 }
 
 /***
