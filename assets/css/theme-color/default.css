@@ -5,7 +5,7 @@
 nav.navbar.bootsnav, .main_nav ul ul li, .footer_logo ul li a:hover, .points_icon, .cons_man, .tparrows.tp-leftarrow:hover, .tparrows.tp-rightarrow:hover, .feature-box:before, .feature-box:after, .content:before, .content:after, .b-line, .social_team ul li a, .counter_box .single-fact .counter:before, .footer_logo ul li a:hover, .social-link__block a:after, .bg_black,
 .patient_head, .dots_style .owl-dots .owl-dot, .event_date, .post_title h3:before, .post_date, .section_tit:before, .section_tit:after, 
 .three_line, .three_line:before, .three_line:after, .header_tran .navigation .sub-nav, #header .stricky {
-  background: #29D3FD;
+  background: #14729F;
 }
 
 .middel-part__block::before, .middel-part__block .logo:after, .middel-part__block .logo, .main_nav ul ul li:hover {
@@ -14,7 +14,7 @@ nav.navbar.bootsnav, .main_nav ul ul li, .footer_logo ul li a:hover, .points_ico
 
 @media (max-width: 992px) {
   .middel-part__block {
-    background:#29D3FD;
+    background:#14729F;
   }
 }
 /*
@@ -22,7 +22,7 @@ nav.navbar.bootsnav, .main_nav ul ul li, .footer_logo ul li a:hover, .points_ico
 */
 .top-info__block li i, .next_btn_style .owl-controls .owl-nav .owl-prev:hover, .next_btn_style .owl-controls .owl-nav .owl-next:hover, .team_detail span, .counter_box .single-fact .counter, .gallery-heading h4 a, .bg_Testimonial .owl-carousel .owl-controls .owl-nav .owl-prev:hover, .bg_Testimonial .owl-carousel .owl-controls .owl-nav .owl-next:hover, .link_footer ul li a:hover, .footer-latest-news .single-news span, .footer-latest-news .single-news h5 a:hover, .more_btn__block, .bor_top a,
 .header_tran .top-bar-section .top-social-icon .icons-hover-black a:hover, .header_tran .top_loction ul li a:hover, .header_tran .top_loction ul li a i, .color {
-  color: #29D3FD;
+  color: #14729F;
 }
 
 /*
@@ -30,7 +30,7 @@ nav.navbar.bootsnav, .main_nav ul ul li, .footer_logo ul li a:hover, .points_ico
 */
 .next_btn_style .owl-controls .owl-nav .owl-prev:hover, .next_btn_style .owl-controls .owl-nav .owl-next:hover, .bg_Testimonial .owl-carousel .owl-controls .owl-nav .owl-prev:hover, .bg_Testimonial .owl-carousel .owl-controls .owl-nav .owl-next:hover, .footer_logo ul li a:hover,
 .tparrows.tp-leftarrow:hover, .tparrows.tp-rightarrow:hover, .process_box {
-  border-color: #29D3FD;
+  border-color: #14729F;
 }
 
 /* INNER_PAGE */
@@ -47,13 +47,13 @@ a.btn.xplus-btn.pricing.active, .btn.xplus-btn, a.btn.xplus-btn.pricing:hover, .
 .ribbon.blue, .btn-default, .bar, .btn-default:hover, .color-switch .owl-controls .owl-page span, .tags li a, .shop .product-overlay div:hover,
 .nf-carousel-theme-top .owl-controls .owl-nav .owl-prev:hover, .nf-carousel-theme-top .owl-controls .owl-nav .owl-next:hover,
 .nf-carousel-theme .owl-controls .owl-nav .owl-prev, .nf-carousel-theme .owl-controls .owl-nav .owl-next {
-  background: #29D3FD;
+  background: #14729F;
 }
 
 .social_hover {
-  background: #29D3FD;
+  background: #14729F;
   /* The Fallback */
-  background: #29D3FD;
+  background: #14729F;
 }
 
 .bullet_round:before, .second_righ:before {
