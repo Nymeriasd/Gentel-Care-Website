@@ -183,6 +183,7 @@
 	text-align: center;
 	padding: 0px 30px 30px 30px;
 }
+
 .triangle_box {
 	position: relative;
 	top: 20px;
@@ -193,8 +194,9 @@
 	margin: 0 auto;
 	font-size: 45px;
 	border-radius: 50%;
-	border: 1px solid #1EC3E0;
+	border: 1px solid #14729F;
 	transform: rotate(180deg);
+	box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.17);
 }
 .triangle_box img {
 	transform: rotate(180deg);
@@ -212,7 +214,7 @@
 }
 /*Call_bg_Section*/
 .bg_contact{
-	background: url(../images/bg_12.jpg) no-repeat 0 0;
+	background: url(../images/img0.jpg) no-repeat 0 0;
 	background-size: cover;
 	position: relative;
 	background-attachment: fixed;
@@ -338,10 +340,11 @@
 
 /*video_sec*/
 .video_sec {
-	background: url(../images/bg_87.jpg);
-	background: #1EC3E0;
+	/* background: url(../images/img9.jpg); */
+	background: #14729F;
 	position: relative;
 	background-size: cover;
+	/* background-color: rgba(0,0,0,0.0); */
 	background-repeat: no-repeat;
 	height: 500px;
 }

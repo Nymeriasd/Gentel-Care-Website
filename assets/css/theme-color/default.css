@@ -81,7 +81,7 @@ a:focus, a:hover, .abt-box__content-link-arrow, .abt-box_link-arrow, .abt-box__c
 /*
 ============== Border Color====================
 */
-.btn-text, .v-line, .ui-timeline .tl-item .tl-body .tl-entry .btn-primary, .testimonial-block .small-divider,
+.v-line, .ui-timeline .tl-item .tl-body .tl-entry .btn-primary, .testimonial-block .small-divider,
 #related-project .owl-prev:hover, #related-project .owl-next:hover, .pagination-nav ul li a, .widget-tag li a,
 .widget-search input[type=text]:focus, .blog-post-hr input[type=text]:focus, .blog-post-hr textarea:focus,
 .custom-check, .pricing-2 .pricing_table.active, a.btn.xplus-btn.pricing.active,
@@ -98,4 +98,8 @@ a:focus, a:hover, .abt-box__content-link-arrow, .abt-box_link-arrow, .abt-box__c
 
 .ribbon:before, .ribbon:after {
   border-top-color: #29D3FD;
+}
+
+.btn-text:hover {
+  border-color: #29D3FD;
 }
