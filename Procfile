@@ -1,1 +1,1 @@
-web: gunicorn gentlecare.wsgi
+web: gunicorn app:app
