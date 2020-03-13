@@ -12,7 +12,17 @@ class Service(db.Model):
     def __repr__(self) :
         return f"Service('{self.IdService}','{self.Name},'{self.Enabled}','{self.CreatedAt}')"
 
+class ExtraService(db.Model):
+    IdService = db.Column(db.Integer, primary_key=True)
+    Name = db.Column(db.String(250), nullable=False)
+    Price = db.Column(db.String(250), nullable=False)
+    Enabled = db.Column(db.Integer, db.ForeignKey('situation.IdSituation'))
+    CreatedAt = db.Column(db.DateTime, nullable=False) 
+    situation = db.relationship('Situation', backref='ExtraService')
 
+
+    def __repr__(self) :
+        return f"ExtraService('{self.IdService}','{self.Name},'{self.Price}','{self.Enabled}','{self.CreatedAt}')"
 
 class Farmer(db.Model):
     Idfarmer = db.Column(db.Integer, primary_key=True)
@@ -53,7 +63,6 @@ class Price(db.Model):
     # crop = db.relationship("Crop", backref="Price") 
     # Service = db.relationship("Service", backref="Price")
     # qty = db.relationship("Quantity", backref="Price")
-    user = db.relationship("Users", backref="Price")
 
 
     def __repr__(self) :
@@ -67,6 +76,14 @@ class Situation(db.Model):
 
     def __repr__(self) :
         return f"Situation('{self.IdSituation}','{self.Situation}','{self.CreatedAt}')"
+
+class Priority(db.Model):
+    IdPriority = db.Column(db.Integer, primary_key=True)
+    PriorityName  = db.Column(db.String(250), nullable=False)
+    CreatedAt  = db.Column(db.DateTime, nullable=False) 
+
+    def __repr__(self) :
+        return f"Priority('{self.IdPriority}','{self.PriorityName}','{self.CreatedAt}')"
 
 
 class Orders(db.Model):
