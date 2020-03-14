@@ -27,9 +27,12 @@
         </div>
     </div>
     <!-- Map Section -->
-    <!-- <div class="map">
-        <div id="map"></div>
-    </div> -->
+
+    <body onload="initialize()">
+        <div class="map">
+            <div id="map"></div>
+        </div>
+    </body>
     <!-- Map Section -->
     <div class="container contact-form pt-90 pt-xs-40 mt-up">
         <div class="row">
@@ -76,4 +79,28 @@
     </div>
 </section>
 <!-- Contact Section -->
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaVF2b8c8-Ml6_gDTfRaESPZeZOFQDUX0"></script>
+<script type="text/javascript">
+    // Standard google maps function
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-1.2977282, 36.8874135);
+        var myOptions = {
+            zoom: 12,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+        var marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            // icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
+            position: myLatlng,
+        });
+    }
+</script>
+
+
 {% endblock content %}
