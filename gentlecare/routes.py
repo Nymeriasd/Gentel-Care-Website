@@ -45,3 +45,8 @@ def aboutus():
 @app.route('/ourservices', methods=['GET','POST'])
 def ourservices():
     return render_template('ourservices.html')
+
+# checkout route 
+@app.route('/checkout', methods=['GET','POST'])
+def checkout():
+    return render_template('checkout.html')
