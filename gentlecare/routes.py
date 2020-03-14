@@ -35,3 +35,13 @@ def cleaning():
 @app.route('/contactus', methods=['GET','POST'])
 def contactus():
     return render_template('contactus.html')
+
+# aboutus route 
+@app.route('/aboutus', methods=['GET','POST'])
+def aboutus():
+    return render_template('aboutus.html')
+
+# ourservices route 
+@app.route('/ourservices', methods=['GET','POST'])
+def ourservices():
+    return render_template('ourservices.html')

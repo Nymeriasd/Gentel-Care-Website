@@ -57,7 +57,7 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<label>Type of services :</label>
-										<select name="Service" id="Service" class="form-control">
+										<select name="Service" id="Service" class="form-control" onchange="getService();">
 											{% for item in ServiceItems %}
 											<option value="{{ item.IdService }}">{{ item.Name }}</option>
 											{% endfor %} 
@@ -65,7 +65,7 @@
 									</div>
 									<div class="col-sm-6">
 										<label>Priority Type :</label>
-										<select name="Priority" id="Priority" class="form-control">
+										<select name="Priority" id="Priority" class="form-control" onchange="getPriority();">
 											{% for item in PriorityItems %}
 											<option value="{{ item.IdPriority }}">{{ item.PriorityName }}</option>
 											{% endfor %}
@@ -75,7 +75,7 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<label>Select Date :</label>
-										<input type="date" name="Date" class="form-control">
+										<input type="date" id="Orderdate" name="Date" class="form-control" onchange="getDate();">
 									</div>
 									<div class="col-sm-6">
 										<label>What time you would like to start ?</label>
@@ -135,13 +135,13 @@
 								<div class="product_order">
 									<ul>
 										<li>
-											Type of Service :<span>Pluming</span>
+											Type of Service :<span id="typeofservice"></span>
 										</li>
 										<li>
-											Priority Type :<span>Normal</span>
+											Priority Type :<span id="priority"></span>
 										</li>
 										<li>
-											Selected Date :<span>2 Jan 2020</span>
+											Selected Date :<span id="dateOrder"></span>
 										</li>
 										<li>
 											Selected Time :<span>Flexible</span>
@@ -197,4 +197,30 @@
 	</div>
 </section>
 <!-- About -->
+
+
+<script>
+	function getService() {
+     var ServiceValue = document.getElementById("Service");
+	 var text = ServiceValue.options[ServiceValue.selectedIndex].text;
+     document.getElementById("typeofservice").innerText = text;
+	}
+
+	function getPriority() {
+     var PriorityValue = document.getElementById("Priority");
+	 var text = PriorityValue.options[PriorityValue.selectedIndex].text;
+     document.getElementById("priority").innerText = text;
+	}
+
+	function getDate(){
+		var Date = document.getElementById("Orderdate").value;
+		document.getElementById("dateOrder").innerText = Date;
+	}
+
+
+
+	getService();
+	getPriority();
+	getDate();
+</script>
 {% endblock content %}

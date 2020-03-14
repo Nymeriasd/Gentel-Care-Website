@@ -17,11 +17,11 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<label>Number Of Hours </label>
-											<input type="number" name="hours" id="hours" class="form-control">
+											<input value="1" type="number" name="hours" id="hours" class="form-control" onchange="getHours();">
 										</div>
 										<div class="col-sm-6">
 											<label>How Many Maid You need ? </label>
-											<input type="number" name="maid" id="Priority" class="form-control">
+											<input value="1" type="number" name="maid" id="maid" class="form-control" onchange="getMaid();">
 										</div>
 									</div>
 									<div class="row">
@@ -82,16 +82,19 @@
 									<div class="product_order">
 										<ul>
 											<li>
-												Type of Service :<span>Pluming</span>
+												Booking Type :<span>Pluming</span>
 											</li>
 											<li>
-												Priority Type :<span>Normal</span>
+												Selected Hours :<span id="selectedhours" ></span>
 											</li>
 											<li>
-												Selected Date :<span>2 Jan 2020</span>
+												Selected Maids :<span id="selectmaid" ></span>
 											</li>
 											<li>
-												Selected Time :<span>Flexible</span>
+												Extra Services :<span id="extrasevices"></span>
+											</li>
+											<li>
+												Selected Date :<span>Flexible</span>
 											</li>
 										</ul>
 									</div>
@@ -147,10 +150,11 @@
 											style="padding-left: 15px !important; padding-right: 10px !important; padding-bottom: 30px !important; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
 											<div class="clean_top mb-xs-30 feature-box" style="text-align: center;">
 												<div class="content">
-													<input type="checkbox" value="{{ item.IdService }}"
-														style="float: right; width: 15% !important;" />
+													<label>{{ item.Name }}</label>
+													<input  id="extra" type="checkbox" value="{{ item.IdService }}"
+														style="float: right; width: 15% !important;" onclick="getExtraServices();" />
 													<img src="static/assets/images/valve.svg" alt="" height="50" width="50" />
-													<h5>{{ item.Name }}</h5>
+													<!-- <h5>{{ item.Name }}</h5> -->
 												</div>
 											</div>
 										</div>
@@ -263,4 +267,38 @@
 		</div>
 	</section>
 	<!-- About -->
+
+<script>
+		function getHours(){
+		var Date = document.getElementById("hours").value;
+		document.getElementById("selectedhours").innerText = Date;
+	}
+
+	function getMaid(){
+		var Date = document.getElementById("maid").value;
+		document.getElementById("selectmaid").innerText = Date;
+	}
+
+	function getExtraServices() {
+		var array = []
+		var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+		for (var i = 0; i < checkboxes.length; i++) {
+ 				 array.push(checkboxes[i].value)
+			}
+			console.debug(array)
+	}
+
+	function getDate(){
+		var Date = document.getElementById("Orderdate").value;
+		document.getElementById("dateOrder").innerText = Date;
+	}
+
+	getHours();
+	getMaid();
+	getExtraServices();
+	getDate();
+
+</script>
+
 	{% endblock content %}
