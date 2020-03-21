@@ -2,303 +2,265 @@
 {% block content %}
 
 
-	<section class="padding ptb-xs-40">
-		<div class="romana_chect_out_form_area sp">
-			<div class="container" style="margin-top: -170px">
-				<form action="#">
-					<div class="romana_check_out_form">
-						<div class="row bg_withe">
-							<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
-								<div class="check_form_left common_input">
-									<div class="heading-box pb-30" style="padding-top: 30px;">
-										<h2><span>Service </span> Details</h2>
-										<span class="b-line l-left"></span>
-									</div>
-									<div class="row">
-										<div class="col-sm-6">
-											<label>Number Of Hours </label>
-											<input value="1" type="number" name="hours" id="hours" class="form-control" onchange="getHours();">
-										</div>
-										<div class="col-sm-6">
-											<label>How Many Maid You need ? </label>
-											<input value="1" type="number" name="maid" id="maid" class="form-control" onchange="getMaid();">
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-6">
-											<label>How Often you need your cleaner ?</label>
-											<input type="date" name="Date" class="form-control">
-										</div>
-										<div class="col-sm-6">
-											<label>What time you would like to start ?</label>
-											<select name="time" id="time" class="form-control">
-												<option value="1">time</option>
-												<option value="2">time</option>
-												<option value="3">time</option>
-												<option value="4">time</option>
-											</select> </div>
-									</div>
-									<!-- <div class="row">
-										<div class="col-sm-6">
-											<div class="select_option_one">
-												<select name="userSelect" id="userSelect" class="">
-													<option value="1">Country</option>
-													<option value="2">Unitate State</option>
-													<option value="3">Canada</option>
-													<option value="4">Bangladesh</option>
-												</select>
-											</div>
-											<div class="select_option_one">
-												<select name="userSelect1" id="userSelect1" class="">
-													<option value="1">State</option>
-													<option value="2">Alabama</option>
-													<option value="3">Alaska</option>
-													<option value="4">Lowa</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="select_option_one">
-												<select name="userSelect2" id="userSelect2" class="">
-													<option value="1">City</option>
-													<option value="2">Bristol</option>
-													<option value="3">Washington</option>
-													<option value="4">Salem</option>
-												</select>
-											</div>
-											<input type="text" name="check_zip" placeholder="Zip Code">
-										</div>
-									</div> -->
-
+<section class="padding ptb-xs-40">
+	<div class="romana_chect_out_form_area sp">
+		<div class="container" style="margin-top: -170px">
+			<form action="#">
+				<div class="romana_check_out_form">
+					<div class="row bg_withe">
+						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
+							<div class="check_form_left common_input">
+								<div class="heading-box pb-30" style="padding-top: 30px;">
+									<h2><span>Service </span> Details</h2>
+									<span class="b-line l-left"></span>
 								</div>
-							</div>
-							<div class="col-lg-4" style="padding-top: 30px; padding-bottom: 30px;">
-								<div class="check_form_right bg-color light-color">
-									<div class="heading-box pb-15 ">
-										<h3><span>Booking </span>Summary</h3>
-										<span class="b-line l-left secondary_bg"></span>
+								<div class="row">
+									<div class="col-sm-6">
+										<label>Number Of Hours </label>
+										<input value="1" type="number" name="hours" id="hours" class="form-control"
+											onchange="getHours();">
 									</div>
-
-									<div class="product_order">
-										<ul>
-											<li>
-												Booking Type :<span>Pluming</span>
-											</li>
-											<li>
-												Selected Hours :<span id="selectedhours" ></span>
-											</li>
-											<li>
-												Selected Maids :<span id="selectmaid" ></span>
-											</li>
-											<li>
-												Extra Services :<span id="extrasevices"></span>
-											</li>
-											<li>
-												Selected Date :<span>Flexible</span>
-											</li>
-										</ul>
+									<div class="col-sm-6">
+										<label>How Many Maid You need ? </label>
+										<input value="1" type="number" name="maid" id="maid" class="form-control"
+											onchange="getMaid();">
 									</div>
-									<div class="romana_select_method ">
-										<ul class="mb-40">
-											<li>
-												<!-- <input type="radio" id="option1" name="selector"> -->
-												<h3><span>Price </span>Details</h3>
-												<span class="b-line l-left secondary_bg"></span>
-												<div class="product_order">
-													<ul>
-														<li>
-															Total Charge :<span>150 SDG</span>
-														</li>
-														<li>
-															VAT :<span>15 SDG</span>
-														</li>
-														<li>
-															Total Price :<span>165 SDG</span>
-														</li>
-													</ul>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<main class="main">
+											<div class="row">
+												<label>How Often you need your cleaner ?</label>
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<input class="input_tabs" id="tab1" type="radio" name="freqtab"
+														checked>
+													<label onclick="getfreq()" data-value="One Day" id="once" class="label_tabs" for="tab1">Once</label>
+													<section class="section_tabs" id="content1">
+														<p>
+															Bacon ipsum dolor sit amet beef venison beef ribs kielbasa.
+															Sausage pig leberkas, t-bone sirloin shoulder bresaola.
+															Frankfurter rump porchetta ham. Pork belly prosciutto
+															brisket meatloaf short ribs.
+														</p>
+														<p>
+															Brisket meatball turkey short loin boudin leberkas meatloaf
+															chuck andouille pork loin pastrami spare ribs pancetta rump.
+															Frankfurter corned beef beef tenderloin short loin meatloaf
+															swine ground round venison.
+														</p>
+													</section>
 												</div>
-											</li>
-										</ul>
-										<a href="{{url_for('checkout')}}" class="btn-text white-btn">Next</a>
+
+												<div class="col-sm-6">
+
+													<input class="input_tabs" id="tab2" type="radio" name="freqtab">
+													<label onclick="getfreqSech()" data-value="Cleaning Schedule" id="Sech" class="label_tabs" for="tab2">Cleaning Schedule</label>
+													<section class="section_tabs" id="content2">
+														<p>
+															Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky
+															drumstick fatback boudin ball tip turducken. Pork belly
+															meatball t-bone bresaola tail filet mignon kevin turkey
+															ribeye shank flank doner cow kielbasa shankle. Pig swine
+															chicken hamburger, tenderloin turkey rump ball tip sirloin
+															frankfurter meatloaf boudin brisket ham hock. Hamburger
+															venison brisket tri-tip andouille pork belly ball tip short
+															ribs biltong meatball chuck. Pork chop ribeye tail short
+															ribs, beef hamburger meatball kielbasa rump corned beef
+															porchetta landjaeger flank. Doner rump frankfurter meatball
+															meatloaf, cow kevin pork pork loin venison fatback spare
+															ribs salami beef ribs.
+														</p>
+														<p>
+															Jerky jowl pork chop tongue, kielbasa shank venison.
+															Capicola shank pig ribeye leberkas filet mignon brisket beef
+															kevin tenderloin porchetta. Capicola fatback venison shank
+															kielbasa, drumstick ribeye landjaeger beef kevin tail
+															meatball pastrami prosciutto pancetta. Tail kevin spare ribs
+															ground round ham ham hock brisket shoulder. Corned beef
+															tri-tip leberkas flank sausage ham hock filet mignon beef
+															ribs pancetta turkey.
+														</p>
+													</section>
+												</div>
+											</div>
+										</main>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</form>
-				<!-- column End -->
-			</div>
-			<!-- container End -->
-		</div>
-	</section>
+						<div class="col-lg-4" style="padding-top: 30px; padding-bottom: 30px;">
+							<div class="check_form_right bg-color light-color">
+								<div class="heading-box pb-15 ">
+									<h3><span>Booking </span>Summary</h3>
+									<span class="b-line l-left secondary_bg"></span>
+								</div>
 
-	<section class="padding ptb-xs-40">
-		<div class="romana_chect_out_form_area sp">
-			<div class="container" style="margin-top: -170px">
-				<form action="#">
-					<div class="romana_check_out_form">
-						<div class="row bg_withe">
-							<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
-								<div class="check_form_left common_input">
-									<div class="heading-box pb-30" style="padding-top: 30px;">
-										<h2><span>Extra </span> Service</h2>
-										<span class="b-line l-left"></span>
-									</div>
-									<div class="row">
-										{% for item in ExtraServiceItems %}
-										<div class="col-lg-3 col-md-6 mt-xs-30 "
-											style="padding-left: 15px !important; padding-right: 10px !important; padding-bottom: 30px !important; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
-											<div class="clean_top mb-xs-30 feature-box" style="text-align: center;">
-												<div class="content">
-													<label>{{ item.Name }}</label>
-													<input  id="extra" type="checkbox" value="{{ item.IdService }}"
-														style="float: right; width: 15% !important;" onclick="getExtraServices();" />
-													<img src="static/assets/images/valve.svg" alt="" height="50" width="50" />
-													<!-- <h5>{{ item.Name }}</h5> -->
-												</div>
+								<div class="product_order">
+									<ul>
+										<li>
+											Booking Type :<span id="freqtext"></span>
+										</li>
+										<li>
+											Selected Hours :<span id="selectedhours"></span>
+										</li>
+										<li>
+											Selected Maids :<span id="selectmaid"></span>
+										</li>
+										<li>
+											Extra Services :<span id="extrasevices"></span>
+										</li>
+										<li>
+											Selected Date :<span>Flexible</span>
+										</li>
+									</ul>
+								</div>
+								<div class="romana_select_method ">
+									<ul class="mb-40">
+										<li>
+											<h3><span>Price </span>Details</h3>
+											<span class="b-line l-left secondary_bg"></span>
+											<div class="product_order">
+												<ul>
+													<li>
+														Total Charge :<span>150 SDG</span>
+													</li>
+													<li>
+														Extra Service :<span id="extraprice"></span>
+													</li>
+													<li>
+														Total Price :<span>165 SDG</span>
+													</li>
+												</ul>
 											</div>
-										</div>
-										{% endfor %}
-										<!-- <div class="col-lg-3 col-md-6 mt-xs-30 "
-											style="padding-left: 10px !important; padding-right: 10px !important; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17); ">
-											<div class="clean_top mb-xs-30 feature-box" style="text-align: center;">
-												<div class="content">
-													<input type="checkbox"
-														style="float: right; width: 15% !important;" />
-													<img src="static/assets/images/air-conditioner.svg" alt="" height="50"
-														width="50" />
-													<h5>AC Service </h5>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-3 col-md-6 mt-xs-30 "
-											style="padding-left: 10px !important; padding-right: 10px !important; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
-											<div class="clean_top mb-xs-30 feature-box" style="text-align: center;">
-												<div class="content">
-													<input type="checkbox"
-														style="float: right; width: 15% !important;" />
-													<img src="static/assets/images/plug.svg" alt="" height="50" width="50" />
-													<h5>Electrical</h5>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-3 col-md-6 mt-xs-30 "
-											style="padding-left: 10px !important; padding-right: 10px !important; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
-											<div class="clean_top mb-xs-30 feature-box" style="text-align: center;">
-												<div class="content">
-													<input type="checkbox"
-														style="float: right; width: 15% !important;" />
-													<img src="static/assets/images/electrician(1).svg" alt="" height="50"
-														width="50" />
-													<h5>Handymen</h5>
-												</div>
-											</div>
-										</div> -->
-									</div>
-									<!-- <div class="row">
-										<div class="col-sm-6">
-											<label>How to let our agent in ?</label>
-											<select name="Service" id="Service" class="form-control">
-												<option value="1">Option One</option>
-												<option value="2">Option One</option>
-												<option value="3">Option One</option>
-												<option value="4">Option One</option>
-											</select> </div>
-									</div> -->
-									<div class="row">
-										<div class="col-sm-12">
-											<label>Do you have any cleaning’s instructions ?</label>
-											<input type="text" name="Service" id="Service" class="form-control">
-										</div>
-									</div>
-									<!-- <div class="row">
-										<div class="col-sm-6">
-											<div class="select_option_one">
-												<select name="userSelect" id="userSelect" class="">
-													<option value="1">Country</option>
-													<option value="2">Unitate State</option>
-													<option value="3">Canada</option>
-													<option value="4">Bangladesh</option>
-												</select>
-											</div>
-											<div class="select_option_one">
-												<select name="userSelect1" id="userSelect1" class="">
-													<option value="1">State</option>
-													<option value="2">Alabama</option>
-													<option value="3">Alaska</option>
-													<option value="4">Lowa</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="select_option_one">
-												<select name="userSelect2" id="userSelect2" class="">
-													<option value="1">City</option>
-													<option value="2">Bristol</option>
-													<option value="3">Washington</option>
-													<option value="4">Salem</option>
-												</select>
-											</div>
-											<input type="text" name="check_zip" placeholder="Zip Code">
-										</div>
-									</div> -->
+										</li>
+									</ul>
+									<a href="{{url_for('checkout')}}" class="btn-text white-btn">Next</a>
 								</div>
 							</div>
 						</div>
-					</div>
-				</form>
-				<!-- column End -->
-			</div>
-			<!-- container End -->
-		</div>
-
-	</section>
-
-	<!-- About -->
-	<section class="padding ptb-xs-40">
-		<div class="container">
-			<div class="row mt-30 mt-xs-0">
-				<div class="col-md-4 d-flex align-items-center">
-					<div class="section_tit">
 					</div>
 				</div>
-			</div>
-
+			</form>
 		</div>
-	</section>
-	<!-- About -->
+	</div>
+</section>
+
+<section class="padding ptb-xs-40">
+	<div class="romana_chect_out_form_area sp">
+		<div class="container" style="margin-top: -170px">
+			<form action="#">
+				<div class="romana_check_out_form">
+					<div class="row bg_withe">
+						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
+							<div class="check_form_left common_input">
+								<div class="heading-box pb-30" style="padding-top: 30px;">
+									<h2><span>Extra </span> Service</h2>
+									<span class="b-line l-left"></span>
+								</div>
+								<div class="row">
+									{% for item in ExtraServiceItems %}
+									<div class="col-lg-3 col-md-6 mt-xs-30 "
+										style="padding-left: 15px !important; padding-right: 10px !important; padding-bottom: 30px !important; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
+										<div class="clean_top mb-xs-30 feature-box" style="text-align: center;">
+											<div class="content" style="height: 150px;">
+												<label>{{ item.Name }}</label>
+												<input id="{{ item.Name }}" type="checkbox"
+													data-value="{{ item.Price }}" value="{{ item.IdService }}"
+													style="float: right; width: 100% !important;"
+													onclick="getExtraServices();" />
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<label>Do you have any cleaning’s instructions ?</label>
+										<textarea id="comment" rows="4" cols="50" class="form-control"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</section>
 
 <script>
-		function getHours(){
+	function getHours() {
 		var Date = document.getElementById("hours").value;
 		document.getElementById("selectedhours").innerText = Date;
 	}
 
-	function getMaid(){
+	function getMaid() {
 		var Date = document.getElementById("maid").value;
 		document.getElementById("selectmaid").innerText = Date;
 	}
 
 	function getExtraServices() {
-		var array = []
+		var array_id = []
+		var array_price = []
+		var array_name = []
 		var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
 		for (var i = 0; i < checkboxes.length; i++) {
- 				 array.push(checkboxes[i].value)
-			}
-			console.debug(array)
+			array_id.push(checkboxes[i].value)
+			array_price.push(checkboxes[i].getAttribute('data-value'))
+			array_name.push(checkboxes[i].getAttribute('id'))
+			// document.getElementById("extrasevices").innerText = array_name[i];
+		}
+
+		document.getElementById("extrasevices").innerText = array_name;
+
+		numbers = array_price.map(Number);
+
+		var sum = numbers.reduce(function (a, b) {
+
+			return a + b;
+
+		}, 0);
+
+		document.getElementById("extraprice").innerText = sum +" SDG";
+
+
+		console.debug(array_id)
+		console.debug(array_price)
+		console.debug(array_name)
+		console.debug(sum)
 	}
 
-	function getDate(){
+	function getDate() {
 		var Date = document.getElementById("Orderdate").value;
 		document.getElementById("dateOrder").innerText = Date;
+	}
+
+	function getfreq(){
+		var freqOnce = document.getElementById("once").getAttribute('data-value');
+		document.getElementById("freqtext").innerText = freqOnce;
+
+		console.debug(freqOnce)
+
+	}
+
+	function getfreqSech(){
+		var freqSech = document.getElementById("Sech").getAttribute('data-value');
+		document.getElementById("freqtext").innerText = freqSech;
+		console.debug(freqSech)
 	}
 
 	getHours();
 	getMaid();
 	getExtraServices();
 	getDate();
-
+	getfreq();
+	getfreqSech();
 </script>
 
-	{% endblock content %}
+
+{% endblock content %}

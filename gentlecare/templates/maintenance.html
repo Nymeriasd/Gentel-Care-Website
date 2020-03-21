@@ -3,7 +3,7 @@
 <section class="padding ptb-xs-40">
 	<div class="romana_chect_out_form_area sp">
 		<div class="container" style="margin-top: -170px">
-			<form action="#">
+			<form action="{{url_for('checkout')}}" method="POST">
 				<div class="romana_check_out_form">
 					<div class="row bg_withe">
 						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
@@ -59,7 +59,7 @@
 										<label>Type of services :</label>
 										<select name="Service" id="Service" class="form-control" onchange="getService();">
 											{% for item in ServiceItems %}
-											<option value="{{ item.IdService }}">{{ item.Name }}</option>
+											<option value="{{ item.IdService }}" data-value="{{ item.Price }}">{{ item.Name }}</option>
 											{% endfor %} 
 										</select> 
 									</div>
@@ -75,52 +75,18 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<label>Select Date :</label>
-										<input type="date" id="Orderdate" name="Date" class="form-control" onchange="getDate();">
+										<input type="date" id="Orderdate" name="Orderdate" class="form-control" onchange="getDate();">
 									</div>
 									<div class="col-sm-6">
 										<label>What time you would like to start ?</label>
 										<select name="time" id="time" class="form-control">
-											<option value="1">time</option>
-											<option value="2">time</option>
-											<option value="3">time</option>
-											<option value="4">time</option>
+											<option value="1">Flexible</option>
 										</select> </div>
 								</div>
-								<!-- <div class="row">
-										<div class="col-sm-6">
-											<div class="select_option_one">
-												<select name="userSelect" id="userSelect" class="">
-													<option value="1">Country</option>
-													<option value="2">Unitate State</option>
-													<option value="3">Canada</option>
-													<option value="4">Bangladesh</option>
-												</select>
-											</div>
-											<div class="select_option_one">
-												<select name="userSelect1" id="userSelect1" class="">
-													<option value="1">State</option>
-													<option value="2">Alabama</option>
-													<option value="3">Alaska</option>
-													<option value="4">Lowa</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="select_option_one">
-												<select name="userSelect2" id="userSelect2" class="">
-													<option value="1">City</option>
-													<option value="2">Bristol</option>
-													<option value="3">Washington</option>
-													<option value="4">Salem</option>
-												</select>
-											</div>
-											<input type="text" name="check_zip" placeholder="Zip Code">
-										</div>
-									</div> -->
 								<div class="row">
 									<div class="col-sm-12">
 										<label>Any special instructions or additional details ?</label>
-										<input type="text" name="comments" placeholder="comments ...">
+										<textarea id="comment" name="comment" rows="4" cols="50" class="form-control"></textarea>
 									</div>
 								</div>
 							</div>
@@ -135,7 +101,7 @@
 								<div class="product_order">
 									<ul>
 										<li>
-											Type of Service :<span id="typeofservice"></span>
+											Type of Service :<span name="typeofservice"  id="typeofservice"></span>
 										</li>
 										<li>
 											Priority Type :<span id="priority"></span>
@@ -157,19 +123,20 @@
 											<div class="product_order">
 												<ul>
 													<li>
-														Total Charge :<span>150 SDG</span>
+														Total Charge :<span id="Price"></span>
 													</li>
-													<li>
+													<!-- <li>
 														VAT :<span>15 SDG</span>
-													</li>
+													</li> -->
 													<li>
-														Total Price :<span>165 SDG</span>
+														Total Price :<span id="totalPrice"></span>
 													</li>
 												</ul>
 											</div>
 										</li>
 									</ul>
-									<a href="{{url_for('checkout')}}" class="btn-text white-btn">Next</a>
+									<button type="submit" class="btn-text white-btn">Next</button>
+									<!-- <button type="submit">Submit</button> -->
 								</div>
 							</div>
 						</div>
@@ -202,8 +169,14 @@
 <script>
 	function getService() {
      var ServiceValue = document.getElementById("Service");
+	 var Price = ServiceValue.options[ServiceValue.selectedIndex].getAttribute('data-value');
 	 var text = ServiceValue.options[ServiceValue.selectedIndex].text;
+
      document.getElementById("typeofservice").innerText = text;
+	 document.getElementById("Price").innerText = Price +" SDG";
+	 document.getElementById("totalPrice").innerText = Price +" SDG";
+
+
 	}
 
 	function getPriority() {
@@ -216,8 +189,6 @@
 		var Date = document.getElementById("Orderdate").value;
 		document.getElementById("dateOrder").innerText = Date;
 	}
-
-
 
 	getService();
 	getPriority();

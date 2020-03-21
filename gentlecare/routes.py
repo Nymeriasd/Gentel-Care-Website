@@ -34,7 +34,18 @@ def cleaning():
 # contactus route 
 @app.route('/contactus', methods=['GET','POST'])
 def contactus():
-    return render_template('contactus.html')
+    if request.method == 'POST':
+        try :
+            msg = Message(request.form['form-subject'], sender='contact@example.com', recipients=['your_email@example.com'])
+            msg.body = """
+            From: %s <%s>
+            %s
+            """ % (request.form['form-name'], request.form['form-email'], request.form['form-message'])
+            mail.send(msg)
+        except Exception as err :
+            return render_template('contactus.html')
+    elif request.method == 'GET' :
+        return render_template('contactus.html')
 
 # aboutus route 
 @app.route('/aboutus', methods=['GET','POST'])
@@ -49,4 +60,15 @@ def ourservices():
 # checkout route 
 @app.route('/checkout', methods=['GET','POST'])
 def checkout():
-    return render_template('checkout.html')
+    if request.method == "POST" :
+        IdSercvies = request.form.get('Service')
+        IdPriority = request.form.get('Priority')
+        Orderdate = request.form.get('Orderdate')
+        time = request.form.get('time')
+        comments = request.form.get('comments')
+        Service = request.form.get('p')
+        print(Service)
+        return render_template('checkout.html' , IdSercvies = IdSercvies , IdPriority = IdPriority , Orderdate = Orderdate , time = time , comments = comments)
+        
+    elif request.method == 'GET':
+        render_template('checkout.html')

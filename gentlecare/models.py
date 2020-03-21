@@ -4,13 +4,14 @@ from gentlecare import app, db
 class Service(db.Model):
     IdService = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(250), nullable=False)
+    Price = db.Column(db.String(250), nullable=False)
     Enabled = db.Column(db.Integer, db.ForeignKey('situation.IdSituation'))
     CreatedAt = db.Column(db.DateTime, nullable=False) 
     situation = db.relationship('Situation', backref='Service')
 
 
     def __repr__(self) :
-        return f"Service('{self.IdService}','{self.Name},'{self.Enabled}','{self.CreatedAt}')"
+        return f"Service('{self.IdService}','{self.Name},'{self.Price}','{self.Enabled}','{self.CreatedAt}')"
 
 class ExtraService(db.Model):
     IdService = db.Column(db.Integer, primary_key=True)

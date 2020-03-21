@@ -1,43 +1,4 @@
-/*Table Content
- =================================================
- * BASIC STYLE
- - Typography Style
- - Padding and Margin Style
- - General Style
- - Box Hover Style
- - Form Style
 
- * HEADER
- - Header Style
- - Header style 2
- - Navigation Menu
-
- * FOOTER
-
- * ELEMENTS
- - Main Banner
- - Page Intro
- - Testimonial
- - Pagination Navigation
- - Sidebar Widget
- - blog Section
- - Partner Section
- - About Us Page
- - Timeline Section
- - Team
- - Serve
- - Faq Page
- - 404 page
- - Blog Page
- - Register and login Pages
- - Contact Page
- - Preloader
- ================================================
- */
-
-/*-------------------------------------------------------------------------------------------*/
-/* BASIC STYLE    ||---------------------------- */
-/*-------------------------------------------------------------------------------------------*/
 body, html {
 	margin: 0;
 	padding: 0;
@@ -49,7 +10,7 @@ body {
 	font-weight: 400;
 	font-family: 'Poppins', sans-serif;
 }
-/*  Typography Style   ||-----------*/
+
 h1 {
 	font-size: 60px;
 	margin-top: 0;
@@ -8881,7 +8842,7 @@ a.btn.xplus-btn.pricing.active:hover {
 	}
 }
 
-/*=======Blog Section=========*/
+
 .latest__block-post {
 	padding: 20px;
 }
@@ -8904,3 +8865,75 @@ a.btn.xplus-btn.pricing.active:hover {
 .project-detail-block {
 	padding: 30px;
 }
+
+
+.main {
+  min-width: 320px;
+  max-width: 800px;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.section_tabs {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+.input_tabs {
+  display: none;
+}
+
+.label_tabs {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+.label_tabs:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.label_tabs:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+.input_tabs:checked + .label_tabs {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #14729F;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2 {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+	.label_tabs {
+    font-size: 0;
+  }
+
+  .label_tabs:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+	.label_tabs {
+    padding: 15px;
+  }
+}
+
+
+
