@@ -87,23 +87,28 @@ class Priority(db.Model):
         return f"Priority('{self.IdPriority}','{self.PriorityName}','{self.CreatedAt}')"
 
 
-class Orders(db.Model):
+class OrdersMaintenance(db.Model):
     IdOrder = db.Column(db.Integer, primary_key=True)
     OrderNumber = db.Column(db.String(250), nullable=True)
-    IdBusines = db.Column(db.Integer, db.ForeignKey('business.IdBusines'))
-    # IdCrop = db.Column(db.Integer, db.ForeignKey('crop.IdCrop'))
-    # IdQty = db.Column(db.Integer, db.ForeignKey('quantity.IdQty'))
-    IdOrderStatus  = db.Column(db.Integer, db.ForeignKey('order_status.IdOrderStatus'))
+    FirstName  = db.Column(db.String(250), nullable=True)
+    LastName   = db.Column(db.String(250), nullable=True)
+    PhoneNumber = db.Column(db.String(250), nullable=True)
+    Email = db.Column(db.String(250), nullable=True)
+    Address  = db.Column(db.String(250), nullable=True)
+    IdService  = db.Column(db.Integer, db.ForeignKey('service.IdService'))
     Price  = db.Column(db.String(250), nullable=True)
-    Ordertime = db.Column(db.String(250), nullable=True)
+    IdPriority  = db.Column(db.Integer, db.ForeignKey('priority.IdPriority'))
+    IdOrderStatus  = db.Column(db.Integer, db.ForeignKey('order_status.IdOrderStatus'))
+    Ordertime = db.Column(db.String(250), nullable=True) 
+    Time = db.Column(db.String(250), nullable=True) 
+    Comment = db.Column(db.String(250), nullable=True) 
     CreatedAt = db.Column(db.DateTime, nullable=False)
-    # crop = db.relationship("Crop", backref="Orders") 
-    # qty = db.relationship("Quantity", backref="Orders")
-    orderstatus = db.relationship("OrderStatus", backref="Orders")
-    business = db.relationship("Business", backref="Orders") 
+
+    service = db.relationship("Service", backref="OrdersMaintenance")
+    priority = db.relationship("Priority", backref="OrdersMaintenance") 
 
     def __repr__(self) :
-        return f"Orders('{self.IdOrder}',{self.OrderNumber}','{self.IdBusines}','{self.IdCrop}','{self.IdQty}','{self.IdOrderStatus}','{self.Price}','{self.Ordertime}','{self.CreatedAt}')"        
+        return f"OrdersMaintenance('{self.IdOrder}',{self.OrderNumber}','{self.FirstName}','{self.LastName}','{self.PhoneNumber}','{self.Email}','{self.IdService}','{self.Price}','{self.IdPriority}','{self.IdOrderStatus}','{self.Ordertime}','{self.Time}','{self.Comment}')"        
 
 class OrderStatus(db.Model):
     IdOrderStatus = db.Column(db.Integer, primary_key=True)

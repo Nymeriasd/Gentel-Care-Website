@@ -82,16 +82,16 @@
 								<div class="product_order">
 									<ul>
 										<li>
-											Type of Service :<span>Pluming</span>
+											Type of Service :<span>{{ Service.Name }}</span>
 										</li>
 										<li>
-											Priority Type :<span>Normal</span>
+											Priority Type :<span>{{ Priority.PriorityName }}</span>
 										</li>
 										<li>
 											Selected Date :<span>{{ Orderdate }}</span>
 										</li>
 										<li>
-											Selected Time :<span>Flexible</span>
+											Selected Time :<span>{{ time }}</span>
 										</li>
 									</ul>
 								</div>
@@ -104,13 +104,13 @@
 											<div class="product_order">
 												<ul>
 													<li>
-														Total Charge :<span>150 SDG</span>
+														Total Charge :<span>{{ Service.Price }}</span>
 													</li>
 													<!-- <li>
 														VAT :<span>15 SDG</span>
 													</li> -->
 													<li>
-														Total Price :<span>165 SDG</span>
+														Total Price :<span>{{ Service.Price }}</span>
 													</li>
 												</ul>
 											</div>

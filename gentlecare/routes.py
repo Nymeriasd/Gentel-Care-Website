@@ -2,7 +2,7 @@ from gentlecare import app, db
 from flask import redirect, url_for, render_template, request, make_response
 import urllib3, json, requests, calendar, random, string
 from datetime import datetime
-from gentlecare.models import Service ,Farmer, Business, Price, Situation, Orders, OrderStatus, Priority, ExtraService
+from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService
 from datetime import timedelta
 
 
@@ -61,14 +61,15 @@ def ourservices():
 @app.route('/checkout', methods=['GET','POST'])
 def checkout():
     if request.method == "POST" :
-        IdSercvies = request.form.get('Service')
+        IdService = request.form.get('Service')
         IdPriority = request.form.get('Priority')
         Orderdate = request.form.get('Orderdate')
         time = request.form.get('time')
-        comments = request.form.get('comments')
-        Service = request.form.get('p')
-        print(Service)
-        return render_template('checkout.html' , IdSercvies = IdSercvies , IdPriority = IdPriority , Orderdate = Orderdate , time = time , comments = comments)
+        comments = request.form.get('comment')
+        GetService = db.session.query(Service).filter_by(IdService = IdService).one()
+        GetPriority = db.session.query(Priority).filter_by(IdPriority = IdPriority).one()
+
+        return render_template('checkout.html' , Service = GetService , Priority = GetPriority , Orderdate = Orderdate , time = time , comments = comments)
         
     elif request.method == 'GET':
         render_template('checkout.html')
