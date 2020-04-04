@@ -1,9 +1,9 @@
-﻿{% extends "layout.html" %}
+{% extends "layout.html" %}
 {% block content %}
 <section class="padding ptb-xs-40">
 	<div class="romana_chect_out_form_area sp">
 		<div class="container" style="margin-top: -170px">
-			<form action="{{ url_for('addOrder', IdService = Service.IdService , IdPriority = Priority.IdPriority, Price = Service.Price, Orderdate = Orderdate, Time = time, Comment = comments) }}" method="POST">
+			<form action="url_for()" method="POST">
 				<div class="romana_check_out_form">
 					<div class="row bg_withe">
 						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
@@ -34,64 +34,26 @@
 								<div class="row">
 									<div class="col-sm-12">
 										<label>Address </label>
-										<input type="text" name="address" placeholder="Address">
+										<input type="text" name="check_address" placeholder="Address">
 										<button type="submit" class="btn-text mb-40">Order</button>
+
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4" style="padding-top: 30px; padding-bottom: 30px;">
-							<div class="check_form_right bg-color light-color">
-								<div class="heading-box pb-15 ">
-									<h3><span>Booking </span>Summary</h3>
-									<span class="b-line l-left secondary_bg"></span>
-								</div>
-
-								<div class="product_order">
-									<ul>
-										<li>
-											Type of Service :<span>{{ Service.Name }}</span>
-										</li>
-										<li>
-											Priority Type :<span>{{ Priority.PriorityName }}</span>
-										</li>
-										<li>
-											Selected Date :<span>{{ Orderdate }}</span>
-										</li>
-										<li>
-											Selected Time :<span>{{ time }}</span>
-										</li>
-									</ul>
-								</div>
-								<div class="romana_select_method ">
-									<ul class="mb-40">
-										<li>
-											<h3><span>Price </span>Details</h3>
-											<span class="b-line l-left secondary_bg"></span>
-											<div class="product_order">
-												<ul>
-													<li>
-														Total Charge :<span>{{ Service.Price }}</span>
-													</li>
-													<li>
-														Total Price :<span>{{ Service.Price }}</span>
-													</li>
-												</ul>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</form>
+			<!-- column End -->
 		</div>
+		<!-- container End -->
 	</div>
 
 </section>
 
 
+<!-- About -->
 <section class="padding ptb-xs-40">
 	<div class="container">
 		<div class="row mt-30 mt-xs-0">
@@ -103,4 +65,5 @@
 
 	</div>
 </section>
+<!-- About -->
 {% endblock content %}

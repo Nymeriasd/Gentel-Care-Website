@@ -16,21 +16,6 @@ def random_string_generator(size=5,  chars=string.ascii_uppercase + string.digit
 def index():
     return render_template('index.html')
 
-# maintenance route 
-@app.route('/maintenance', methods=['GET','POST'])
-def maintenance():
-    ServiceItems  = db.session.query(Service).join(Situation).filter(Situation.Situation == 'Enabled').all()
-    PriorityItems = db.session.query(Priority).all()
-    return render_template('maintenance.html', ServiceItems = ServiceItems, PriorityItems = PriorityItems)
-
-
-# cleaning route 
-@app.route('/cleaning', methods=['GET','POST'])
-def cleaning():
-    ExtraServiceItems = db.session.query(ExtraService).join(Situation).filter(Situation.Situation == 'Enabled').all()
-    return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems)
-
-
 # contactus route 
 @app.route('/contactus', methods=['GET','POST'])
 def contactus():
@@ -57,6 +42,22 @@ def aboutus():
 def ourservices():
     return render_template('ourservices.html')
 
+
+# maintenance route 
+@app.route('/maintenance', methods=['GET','POST'])
+def maintenance():
+    ServiceItems  = db.session.query(Service).join(Situation).filter(Situation.Situation == 'Enabled').all()
+    PriorityItems = db.session.query(Priority).all()
+    return render_template('maintenance.html', ServiceItems = ServiceItems, PriorityItems = PriorityItems)
+  
+
+# cleaning route 
+@app.route('/cleaning', methods=['GET','POST'])
+def cleaning():
+    ExtraServiceItems = db.session.query(ExtraService).join(Situation).filter(Situation.Situation == 'Enabled').all()
+    return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems)
+
+
 # checkout route 
 @app.route('/checkout', methods=['GET','POST'])
 def checkout():
@@ -66,10 +67,21 @@ def checkout():
         Orderdate = request.form.get('Orderdate')
         time = request.form.get('time')
         comments = request.form.get('comment')
+
         GetService = db.session.query(Service).filter_by(IdService = IdService).one()
         GetPriority = db.session.query(Priority).filter_by(IdPriority = IdPriority).one()
 
         return render_template('checkout.html' , Service = GetService , Priority = GetPriority , Orderdate = Orderdate , time = time , comments = comments)
         
-    elif request.method == 'GET':
-        render_template('checkout.html')
+
+# add Order route 
+@app.route('/checkout/<int:IdService>/<int:IdPriority>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
+def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
+    if request.method == "POST" :
+        NewOrder = OrdersMaintenance(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('fname'), LastName = request.form.get('lname'), PhoneNumber = request.form.get('phone'), Email = request.form.get('email'), Address = request.form.get('address'), IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment)
+        try :
+            db.session.add(NewOrder)
+            db.session.commit()
+            return redirect(url_for('index'))
+        except Exception as err :
+            return redirect(url_for('index'))
