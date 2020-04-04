@@ -67,9 +67,18 @@ class Price(db.Model):
 
 
     def __repr__(self) :
-        return f"Price('{self.IdPrice}',{self.IdCrop}','{self.IdService}','{self.IdQty}','{self.IdUser}','{self.Price}','{self.CreatedAt}')"        
+        return f"Price('{self.IdPrice}',{self.IdCrop}','{self.IdService}','{self.IdQty}','{self.IdUser}','{self.Price}','{self.CreatedAt}')"  
+              
 
+class Time(db.Model):
+    IdTime = db.Column(db.Integer, primary_key=True)
+    TimeDec   = db.Column(db.String(250), nullable=False)
+    CreatedAt  = db.Column(db.DateTime, nullable=False) 
 
+    def __repr__(self) :
+        return f"Time('{self.IdTime}','{self.TimeDec }','{self.CreatedAt}')"
+
+    
 class Situation(db.Model):
     IdSituation = db.Column(db.Integer, primary_key=True)
     Situation  = db.Column(db.String(250), nullable=False)

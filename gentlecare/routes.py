@@ -2,7 +2,7 @@ from gentlecare import app, db
 from flask import redirect, url_for, render_template, request, make_response
 import urllib3, json, requests, calendar, random, string
 from datetime import datetime
-from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService
+from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService, Time
 from datetime import timedelta
 
 
@@ -48,7 +48,8 @@ def ourservices():
 def maintenance():
     ServiceItems  = db.session.query(Service).join(Situation).filter(Situation.Situation == 'Enabled').all()
     PriorityItems = db.session.query(Priority).all()
-    return render_template('maintenance.html', ServiceItems = ServiceItems, PriorityItems = PriorityItems)
+    TimeItems = db.session.query(Time).all()
+    return render_template('maintenance.html', ServiceItems = ServiceItems, PriorityItems = PriorityItems, TimeItems = TimeItems)
   
 
 # cleaning route 

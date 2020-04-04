@@ -80,8 +80,11 @@
 									<div class="col-sm-6">
 										<label>What time you would like to start ?</label>
 										<select name="time" id="time" class="form-control">
-											<option value="Flexible">Flexible</option>
-										</select> </div>
+											{% for item in TimeItems %}
+											<option value="{{ item.IdTime }}">{{ item.TimeDec }}</option>
+											{% endfor %}										
+										</select> 
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-sm-12">
