@@ -78,7 +78,11 @@ def checkoutmaintenance():
 # checkoutcleaning route 
 @app.route('/checkoutcleaning', methods=['GET','POST'])
 def checkoutcleaning():
-    
+        maid = request.form.get('maid') 
+        hours = request.form.get('hours')    
+        comments = request.form.get('comment')
+        comments = request.form.get('comment')
+
         return render_template('checkoutcleaning.html')
       
 
