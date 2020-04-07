@@ -51,9 +51,9 @@
 														Schedule</label>
 													<section class="section_tabs" id="content2">
 														<label>Start at:</label>
-														<input type="date" id="Orderdate" name="Startdate" class="form-control" onchange="getDate();">
+														<input type="date" id="Startdate" name="Startdate" class="form-control" onchange="getDateSchecdile();">
 														<label>End at:</label>
-														<input type="date" id="Orderdate" name="Enddate" class="form-control" onchange="getDate();">
+														<input type="date" id="Enddate" name="Enddate" class="form-control" onchange="getDateSchecdile();">
 													</section>
 												</div>
 											</div>
@@ -84,7 +84,7 @@
 											Extra Services :<span id="extrasevices"></span>
 										</li>
 										<li>
-											Selected Date :<span>Flexible</span>
+											Selected Date :<span id="dateOrder"></span>
 										</li>
 									</ul>
 								</div>
@@ -208,8 +208,15 @@
 	}
 
 	function getDate() {
-		var Date = document.getElementById("Orderdate").value;
+		var Date = document.getElementById("OnceDate").value;
 		document.getElementById("dateOrder").innerText = Date;
+	}
+
+	function getDateSchecdile() {
+		var StartDate = document.getElementById("Startdate").value;
+		var EndDate = document.getElementById("Enddate").value;
+
+		document.getElementById("dateOrder").innerText = StartDate + " to " + EndDate ;
 	}
 
 	function getfreq() {
