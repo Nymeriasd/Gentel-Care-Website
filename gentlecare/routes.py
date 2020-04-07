@@ -60,8 +60,8 @@ def cleaning():
 
 
 # checkout route 
-@app.route('/checkout', methods=['GET','POST'])
-def checkout():
+@app.route('/checkoutmaintenance', methods=['GET','POST'])
+def checkoutmaintenance():
     if request.method == "POST" :
         IdService = request.form.get('Service')
         IdPriority = request.form.get('Priority')
@@ -72,11 +72,11 @@ def checkout():
         GetService = db.session.query(Service).filter_by(IdService = IdService).one()
         GetPriority = db.session.query(Priority).filter_by(IdPriority = IdPriority).one()
 
-        return render_template('checkout.html' , Service = GetService , Priority = GetPriority , Orderdate = Orderdate , time = time , comments = comments)
+        return render_template('checkoutmaintenance.html' , Service = GetService , Priority = GetPriority , Orderdate = Orderdate , time = time , comments = comments)
         
 
 # add Order route 
-@app.route('/checkout/<int:IdService>/<int:IdPriority>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
+@app.route('/checkoutmaintenance/<int:IdService>/<int:IdPriority>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
 def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
     if request.method == "POST" :
         NewOrder = OrdersMaintenance(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('fname'), LastName = request.form.get('lname'), PhoneNumber = request.form.get('phone'), Email = request.form.get('email'), Address = request.form.get('address'), IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment)
