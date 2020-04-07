@@ -3,7 +3,7 @@
 <section class="padding ptb-xs-40">
 	<div class="romana_chect_out_form_area sp">
 		<div class="container" style="margin-top: -170px">
-			<form action="{{ url_for('addOrder', IdService = Service.IdService , IdPriority = Priority.IdPriority, Price = Service.Price, Orderdate = Orderdate, Time = time, Comment = comments) }}" method="POST">
+			<form action="" method="POST">
 				<div class="romana_check_out_form">
 					<div class="row bg_withe">
 						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
@@ -50,16 +50,19 @@
 								<div class="product_order">
 									<ul>
 										<li>
-											Type of Service :<span>{{ Service.Name }}</span>
+											Booking Type :<span id="freqtext"></span>
 										</li>
 										<li>
-											Priority Type :<span>{{ Priority.PriorityName }}</span>
+											Selected Hours :<span id="selectedhours"></span>
 										</li>
 										<li>
-											Selected Date :<span>{{ Orderdate }}</span>
+											Selected Maids :<span id="selectmaid"></span>
 										</li>
 										<li>
-											Selected Time :<span>{{ time }}</span>
+											Extra Services :<span id="extrasevices"></span>
+										</li>
+										<li>
+											Selected Date :<span id="dateOrder"></span>
 										</li>
 									</ul>
 								</div>
@@ -71,10 +74,13 @@
 											<div class="product_order">
 												<ul>
 													<li>
-														Total Charge :<span>{{ Service.Price }}</span>
+														Total Charge :<span>150 SDG</span>
 													</li>
 													<li>
-														Total Price :<span>{{ Service.Price }}</span>
+														Extra Service :<span id="extraprice"></span>
+													</li>
+													<li>
+														Total Price :<span>165 SDG</span>
 													</li>
 												</ul>
 											</div>
