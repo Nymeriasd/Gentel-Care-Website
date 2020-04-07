@@ -84,7 +84,9 @@ def checkoutcleaning():
         OnceDate = request.form.get('OnceDate')
         StartDate = request.form.get('Startdate')
         EndDate = request.form.get('Enddate')
+        ExtraService = request.form.get('extraservice')
         comments = request.form.get('comment')
+        print(ExtraService)
         return render_template('checkoutcleaning.html', maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, comments = comments)
       
 
