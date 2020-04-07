@@ -78,15 +78,12 @@ def checkoutmaintenance():
 # checkoutcleaning route 
 @app.route('/checkoutcleaning', methods=['GET','POST'])
 def checkoutcleaning():
-        maid = request.form.get('maid') 
-        hours = request.form.get('hours')    
-        OnceDate = request.form.get('OnceDate')
-        StartDate = request.form.get('Startdate')
-        EndDate = request.form.get('Enddate')
-        comments = request.form.get('comment')
+    if request.method == "POST" :
+        print('Hello')
+        return render_template('checkoutcleaning.html')
 
-        return render_template('checkoutcleaning.html' maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, comments = comments)
-      
+        # return render_template('checkoutcleaning.html', maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, comments = comments)
+
 
 # add Order route 
 @app.route('/checkoutmaintenance/<int:IdService>/<int:IdPriority>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
