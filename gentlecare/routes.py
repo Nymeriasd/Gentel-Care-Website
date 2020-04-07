@@ -86,8 +86,12 @@ def checkoutcleaning():
         EndDate = request.form.get('Enddate')
         ExtraService = request.form.get('extraservice')
         comments = request.form.get('comment')
-        print(ExtraService)
-        return render_template('checkoutcleaning.html', maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, comments = comments)
+        if OnceDate :
+           BookingType = "Once" 
+        else :
+           BookingType = "Cleaning Schedule" 
+        print(BookingType)
+        return render_template('checkoutcleaning.html', maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, comments = comments, BookingType = BookingType)
       
 
 # add Order route 
