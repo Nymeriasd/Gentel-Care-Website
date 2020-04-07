@@ -46,8 +46,8 @@
 
 												<div class="col-sm-6">
 													<input class="input_tabs" id="tab2" type="radio" name="freqtab">
-													<label onclick="getfreqSech()" data-value="Cleaning Schedule"
-														id="Sech" class="label_tabs" for="tab2">Cleaning
+													<label onclick="getfreqs()" data-value="Cleaning Schedule"
+														id="csech" class="label_tabs" for="tab2">Cleaning
 														Schedule</label>
 													<section class="section_tabs" id="content2">
 														<label>Start at:</label>
@@ -220,11 +220,12 @@
 
 	}
 
-	function getfreqSech() {
-		var freqSech = document.getElementById("Sech").getAttribute('data-value');
+	function getfreqs() {
+		var freqOnce = document.getElementById("csech").getAttribute('data-value');
 		document.getElementById("freqtext").innerText = freqOnce;
 
-		console.debug(freqSech)
+		console.debug(freqOnce)
+
 	}
 
 
@@ -233,7 +234,7 @@
  getExtraServices();
  getDate();
  getfreq();
- getfreqSech();
+ getfreqs();
 </script>
 
 
