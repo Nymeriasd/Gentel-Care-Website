@@ -80,10 +80,12 @@ def checkoutmaintenance():
 def checkoutcleaning():
         maid = request.form.get('maid') 
         hours = request.form.get('hours')    
-        comments = request.form.get('comment')
+        OnceDate = request.form.get('OnceDate')
+        StartDate = request.form.get('Startdate')
+        EndDate = request.form.get('Enddate')
         comments = request.form.get('comment')
 
-        return render_template('checkoutcleaning.html')
+        return render_template('checkoutcleaning.html' maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, comments = comments)
       
 
 # add Order route 
