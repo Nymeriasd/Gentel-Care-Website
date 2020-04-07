@@ -108,7 +108,7 @@
 											</div>
 										</li>
 									</ul>
-									<a href="{{url_for('checkoutcleaning')}}" class="btn-text white-btn">Next</a>
+									<button type="submit" class="btn-text white-btn">Next</button>
 								</div>
 							</div>
 						</div>
@@ -210,6 +210,9 @@
 	function getDate() {
 		var Date = document.getElementById("OnceDate").value;
 		document.getElementById("dateOrder").innerText = Date;
+		
+		document.getElementById("Startdate").value = null
+		document.getElementById("Enddate").value = null
 	}
 
 	function getDateSchecdile() {
@@ -217,6 +220,7 @@
 		var EndDate = document.getElementById("Enddate").value;
 
 		document.getElementById("dateOrder").innerText = StartDate + " to " + EndDate ;
+		document.getElementById("OnceDate").value = null
 	}
 
 	function getfreq() {

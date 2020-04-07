@@ -53,17 +53,23 @@
 											Booking Type :<span id="freqtext"></span>
 										</li>
 										<li>
-											Selected Hours :<span></span>
+											Selected Hours :<span>{{ hours }}</span>
 										</li>
 										<li>
-											Selected Maids :<span></span>
+											Selected Maids :<span>{{ maid }}</span>
 										</li>
 										<li>
 											Extra Services :<span id="extrasevices"></span>
 										</li>
+										{% if OnceDate %}
+										<li>
+											Selected Date :<span id="dateOrder">{{ OnceDate }}</span>
+										</li>
+										{% else %}
 										<li>
 											Selected Date :<span id="dateOrder"></span>
 										</li>
+										{% endif %}
 									</ul>
 								</div>
 								<div class="romana_select_method ">
