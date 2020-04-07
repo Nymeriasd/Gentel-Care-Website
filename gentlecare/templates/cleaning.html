@@ -39,7 +39,8 @@
 													<label onclick="getfreq()" data-value="One Day" id="once"
 														class="label_tabs" for="tab1">Once</label>
 													<section class="section_tabs" id="content1">
-
+														<label>Select Date :</label>
+														<input type="date" id="OnceDate" name="OnceDate" class="form-control" onchange="getDate();">
 													</section>
 												</div>
 
@@ -49,16 +50,10 @@
 														id="Sech" class="label_tabs" for="tab2">Cleaning
 														Schedule</label>
 													<section class="section_tabs" id="content2">
-														<p>
-															Jerky jowl pork chop tongue, kielbasa shank venison.
-															Capicola shank pig ribeye leberkas filet mignon brisket beef
-															kevin tenderloin porchetta. Capicola fatback venison shank
-															kielbasa, drumstick ribeye landjaeger beef kevin tail
-															meatball pastrami prosciutto pancetta. Tail kevin spare ribs
-															ground round ham ham hock brisket shoulder. Corned beef
-															tri-tip leberkas flank sausage ham hock filet mignon beef
-															ribs pancetta turkey.
-														</p>
+														<label>Start at:</label>
+														<input type="date" id="Orderdate" name="Startdate" class="form-control" onchange="getDate();">
+														<label>End at:</label>
+														<input type="date" id="Orderdate" name="Enddate" class="form-control" onchange="getDate();">
 													</section>
 												</div>
 											</div>
