@@ -5,7 +5,7 @@
 <section class="padding ptb-xs-40">
 	<div class="romana_chect_out_form_area sp">
 		<div class="container" style="margin-top: -170px">
-			<form action="#">
+			<form action="{{url_for('checkoutcleaning')}}" method="POST">
 				<div class="romana_check_out_form">
 					<div class="row bg_withe">
 						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
@@ -108,7 +108,7 @@
 											</div>
 										</li>
 									</ul>
-									<a href="{{url_for('checkout')}}" class="btn-text white-btn">Next</a>
+									<a href="{{url_for('checkoutcleaning')}}" class="btn-text white-btn">Next</a>
 								</div>
 							</div>
 						</div>

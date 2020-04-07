@@ -59,7 +59,7 @@ def cleaning():
     return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems)
 
 
-# checkout route 
+# checkoutmaintenance route 
 @app.route('/checkoutmaintenance', methods=['GET','POST'])
 def checkoutmaintenance():
     if request.method == "POST" :
@@ -73,7 +73,14 @@ def checkoutmaintenance():
         GetPriority = db.session.query(Priority).filter_by(IdPriority = IdPriority).one()
 
         return render_template('checkoutmaintenance.html' , Service = GetService , Priority = GetPriority , Orderdate = Orderdate , time = time , comments = comments)
-        
+
+
+# checkoutcleaning route 
+@app.route('/checkoutcleaning', methods=['GET','POST'])
+def checkoutcleaning():
+    
+        return render_template('checkoutcleaning.html')
+      
 
 # add Order route 
 @app.route('/checkoutmaintenance/<int:IdService>/<int:IdPriority>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
