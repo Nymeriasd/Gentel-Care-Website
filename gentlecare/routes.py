@@ -93,8 +93,7 @@ def checkoutcleaning():
            BookingType = "Once" 
         else :
            BookingType = "Cleaning Schedule" 
-        print(Service)
-        return render_template('checkoutcleaning.html', maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, comments = comments, BookingType = BookingType, Price = Price, Service = Service, Comment = comments)
+        return render_template('checkoutcleaning.html', maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, BookingType = BookingType, Price = Price, Service = Service, comments = comments)
       
 
 # add Order Maintenance route 
@@ -112,9 +111,9 @@ def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
 
 # add Order cleaning route 
 @app.route('/checkoutcleaning/<Service>/<BookingType>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
-def addOrderCleaning(Service,BookingType,Price,Orderdate,Time,Comment):
+def addOrderCleaning(Service):
     if request.method == "POST" :
-        NewOrder = OrdersCleaning(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('fname'), LastName = request.form.get('lname'), PhoneNumber = request.form.get('phone'), Email = request.form.get('email'), Address = request.form.get('address'), Service =  Service, IdOrderStatus = 1, Price = Price, BookingType = BookingType, Ordertime = Orderdate, Time = Time, Comment = Comment)
+        NewOrder = OrdersCleaning(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('fname'), LastName = request.form.get('lname'), PhoneNumber = request.form.get('phone'), Email = request.form.get('email'), Address = request.form.get('address'), Service =  Service, IdOrderStatus = 1, Price = Price, BookingType = BookingType, Ordertime = Orderdate, Time = Time,  Comment = "Comment")
         try :
             db.session.add(NewOrder)
             db.session.commit()
