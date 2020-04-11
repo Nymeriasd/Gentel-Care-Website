@@ -3,7 +3,7 @@
 <section class="padding ptb-xs-40">
 	<div class="romana_chect_out_form_area sp">
 		<div class="container" style="margin-top: -170px">
-			<form action="{{ url_for('addOrderCleaning',Service = Service, BookingType = BookingType, Price = Price, Orderdate = Orderdate, Time = hours, Comment = Comment)}}" method="POST">
+			<form action="{{ url_for('addOrderCleaning',Service = Service, Price = Price, BookingType = BookingType, Time = hours, Maid = maid, Comment = comments, OrderDate = OrderDate )}}" method="POST">
 				<div class="romana_check_out_form">
 					<div class="row bg_withe">
 						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
@@ -61,15 +61,9 @@
 										<li>
 											Extra Services :<span>{{ Service }}</span>
 										</li>
-										{% if OnceDate %}
 										<li>
-											Selected Date :<span id="dateOrder">{{ OnceDate }}</span>
+											Selected Date :<span id="dateOrder">{{ OrderDate }}</span>
 										</li>
-										{% else %}
-										<li>
-											Selected Date :<span id="dateOrder">{{ StartDate }} to {{ EndDate }}</span>
-										</li>
-										{% endif %}
 									</ul>
 								</div>
 								<div class="romana_select_method ">

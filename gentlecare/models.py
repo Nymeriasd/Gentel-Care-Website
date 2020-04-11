@@ -141,12 +141,13 @@ class OrdersCleaning(db.Model):
     Price  = db.Column(db.String(250), nullable=True)
     BookingType   = db.Column(db.Integer, nullable=True)
     IdOrderStatus  = db.Column(db.Integer, db.ForeignKey('order_status.IdOrderStatus'))
-    Ordertime = db.Column(db.String(250), nullable=True) 
     Time = db.Column(db.String(250), nullable=True) 
+    Maid = db.Column(db.String(250), nullable=True) 
+    OrderDate = db.Column(db.String(250), nullable=True)
     Comment = db.Column(db.String(250), nullable=True) 
     CreatedAt = db.Column(db.DateTime, nullable=False)
 
 
 
     def __repr__(self) :
-        return f"OrdersCleaning('{self.IdOrder}',{self.OrderNumber}','{self.FirstName}','{self.LastName}','{self.PhoneNumber}','{self.Email}','{self.Service}','{self.Price}','{self.BookingType}','{self.IdOrderStatus}','{self.Ordertime}','{self.Time}','{self.Comment}')"        
+        return f"OrdersCleaning('{self.IdOrder}',{self.OrderNumber}','{self.FirstName}','{self.LastName}','{self.PhoneNumber}','{self.Email}','{self.Service}','{self.Price}','{self.Maid}','{self.OnceDate}','{self.BookingType}','{self.IdOrderStatus}','{self.Ordertime}','{self.Time}','{self.Comment}','{self.StartDate}','{self.EndDate}')"        

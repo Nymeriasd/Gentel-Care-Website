@@ -2,7 +2,7 @@ from gentlecare import app, db
 from flask import redirect, url_for, render_template, request, make_response
 import urllib3, json, requests, calendar, random, string
 from datetime import datetime
-from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService, Time
+from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService, Time, OrdersCleaning
 from datetime import timedelta
 
 
@@ -68,6 +68,10 @@ def checkoutmaintenance():
         Orderdate = request.form.get('Orderdate')
         time = request.form.get('time')
         comments = request.form.get('comment')
+        if comments :
+            comments = comments
+        else :
+            comments = "No Comment"
 
         GetService = db.session.query(Service).filter_by(IdService = IdService).one()
         GetPriority = db.session.query(Priority).filter_by(IdPriority = IdPriority).one()
@@ -88,12 +92,22 @@ def checkoutcleaning():
         Price = request.form.get('priceforextra')
         Service = request.form.get('extratext')
         comments = request.form.get('comment')
+
+        if comments :
+            comments = comments
+        else :
+            comments = "No Comment"
+
+        if OnceDate :
+            OrderDate = OnceDate
+        else :
+            OrderDate = StartDate + "  to " + EndDate
          
         if OnceDate :
            BookingType = "Once" 
         else :
            BookingType = "Cleaning Schedule" 
-        return render_template('checkoutcleaning.html', maid = maid, hours = hours, OnceDate = OnceDate, StartDate = StartDate, EndDate = EndDate, BookingType = BookingType, Price = Price, Service = Service, comments = comments)
+        return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate )
       
 
 # add Order Maintenance route 
@@ -110,13 +124,14 @@ def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
 
 
 # add Order cleaning route 
-@app.route('/checkoutcleaning/<Service>/<BookingType>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
-def addOrderCleaning(Service):
+@app.route('/checkoutcleaning/<Service>/<float:Price>/<BookingType>/<Time>/<Maid>/<Comment>/<OrderDate>/add', methods=['GET','POST'])
+def addOrderCleaning(Service,Price,BookingType,Time,Maid,Comment,OrderDate):
     if request.method == "POST" :
-        NewOrder = OrdersCleaning(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('fname'), LastName = request.form.get('lname'), PhoneNumber = request.form.get('phone'), Email = request.form.get('email'), Address = request.form.get('address'), Service =  Service, IdOrderStatus = 1, Price = Price, BookingType = BookingType, Ordertime = Orderdate, Time = Time,  Comment = "Comment")
+        NewOrder = OrdersCleaning(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('fname'), LastName = request.form.get('lname'), PhoneNumber = request.form.get('phone'), Email = request.form.get('email'), Address = request.form.get('address'), Service =  Service, Price = Price, BookingType = BookingType, Time = Time, Maid = Maid,  Comment = Comment,  OrderDate = OrderDate, IdOrderStatus = 1)
         try :
             db.session.add(NewOrder)
             db.session.commit()
             return redirect(url_for('index'))
         except Exception as err :
+            print(err)
             return redirect(url_for('index'))
