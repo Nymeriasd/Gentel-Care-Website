@@ -3,7 +3,7 @@
 <section class="padding ptb-xs-40">
 	<div class="romana_chect_out_form_area sp">
 		<div class="container" style="margin-top: -170px">
-			<form action="" method="POST">
+			<form action="{{ url_for('addOrderCleaning', Service = Service , BookingType = BookingType, Price = Price, Orderdate = Orderdate, Time = hours, Comment = comments) }}" method="POST">
 				<div class="romana_check_out_form">
 					<div class="row bg_withe">
 						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
@@ -59,7 +59,7 @@
 											Selected Maids :<span>{{ maid }}</span>
 										</li>
 										<li>
-											Extra Services :<span id="extrasevices"></span>
+											Extra Services :<span>{{ Service }}</span>
 										</li>
 										{% if OnceDate %}
 										<li>
@@ -83,7 +83,7 @@
 														Total Charge :<span>150 SDG</span>
 													</li>
 													<li>
-														Extra Service :<span id="extraprice"></span>
+														Extra Service :<span>{{ Price }} SDG</span>
 													</li>
 													<li>
 														Total Price :<span>165 SDG</span>
