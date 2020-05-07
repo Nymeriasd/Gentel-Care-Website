@@ -84,32 +84,33 @@ def checkoutmaintenance():
 @app.route('/checkoutcleaning', methods=['GET','POST'])
 def checkoutcleaning():
     form = ContactDeatils()
-    if request.method == "POST" :    
-        maid = request.form.get('maid') 
-        hours = request.form.get('Hours')    
-        OnceDate = request.form.get('OnceDate')
-        StartDate = request.form.get('Startdate')
-        EndDate = request.form.get('Enddate')
-        ExtraService = request.form.get('extraservice')
-        Price = request.form.get('priceforextra')
-        Service = request.form.get('extratext')
-        comments = request.form.get('comment')
+    if form.validate_on_submit :
+        if request.method == "POST" :    
+            maid = request.form.get('maid') 
+            hours = request.form.get('Hours')    
+            OnceDate = request.form.get('OnceDate')
+            StartDate = request.form.get('Startdate')
+            EndDate = request.form.get('Enddate')
+            ExtraService = request.form.get('extraservice')
+            Price = request.form.get('priceforextra')
+            Service = request.form.get('extratext')
+            comments = request.form.get('comment')
 
-        if comments :
-            comments = comments
-        else :
-            comments = "No Comment"
+            if comments :
+                comments = comments
+            else :
+                comments = "No Comment"
 
-        if OnceDate :
-            OrderDate = OnceDate
-        else :
-            OrderDate = StartDate + "  to " + EndDate
-         
-        if OnceDate :
-           BookingType = "Once" 
-        else :
-           BookingType = "Cleaning Schedule" 
-        return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate, form = form )
+            if OnceDate :
+                OrderDate = OnceDate
+            else :
+                OrderDate = StartDate + "  to " + EndDate
+            
+            if OnceDate :
+                BookingType = "Once" 
+            else :
+                BookingType = "Cleaning Schedule" 
+            return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate, form = form )
       
 
 # add Order Maintenance route 
