@@ -117,7 +117,9 @@ def checkoutcleaning():
 @app.route('/checkoutmaintenance/<int:IdService>/<int:IdPriority>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
 def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
     if request.method == "POST" :
-        NewOrder = OrdersMaintenance(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('fname'), LastName = request.form.get('lname'), PhoneNumber = request.form.get('phone'), Email = request.form.get('email'), Address = request.form.get('address'), IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment)
+        name  = request.form.get('FirstName')
+        print(name)
+        NewOrder = OrdersMaintenance(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('FirstName'), LastName = request.form.get('LastName'), PhoneNumber = request.form.get('PhoneNumber'), Email = request.form.get('Email'), Address = request.form.get('Address'), IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment)
         try :
             db.session.add(NewOrder)
             db.session.commit()
@@ -130,7 +132,7 @@ def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
 @app.route('/checkoutcleaning/<Service>/<float:Price>/<BookingType>/<Time>/<Maid>/<Comment>/<OrderDate>/add', methods=['GET','POST'])
 def addOrderCleaning(Service,Price,BookingType,Time,Maid,Comment,OrderDate):
     if request.method == "POST" :
-        NewOrder = OrdersCleaning(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('fname'), LastName = request.form.get('lname'), PhoneNumber = request.form.get('phone'), Email = request.form.get('email'), Address = request.form.get('address'), Service =  Service, Price = Price, BookingType = BookingType, Time = Time, Maid = Maid,  Comment = Comment,  OrderDate = OrderDate, IdOrderStatus = 1)
+        NewOrder = OrdersCleaning(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('FirstName'), LastName = request.form.get('LastName'), PhoneNumber = request.form.get('PhoneNumber'), Email = request.form.get('Email'), Address = request.form.get('Address'), Service =  Service, Price = Price, BookingType = BookingType, Time = Time, Maid = Maid,  Comment = Comment,  OrderDate = OrderDate, IdOrderStatus = 1)
         try :
             db.session.add(NewOrder)
             db.session.commit()
