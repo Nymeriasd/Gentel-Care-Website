@@ -15,27 +15,30 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<label>First Name </label>
-										<input type="text" name="fname" id="fname" class="form-control">
+										{{ form.FirstName }}
 									</div>
 									<div class="col-sm-6">
 										<label>Last Name </label>
-										<input type="text" name="lname" id="lname" class="form-control">
+										{{ form.LastName }}
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-sm-6">
 										<label>Phone Number </label>
-										<input type="tel" name="phone" class="form-control">
+										{{ form.PhoneNumber }}
 									</div>
 									<div class="col-sm-6">
 										<label>Email </label>
-										<input type="email" name="email" id="email" class="form-control"> </div>
+										{{ form.Email }}
 								</div>
 								<div class="row">
 									<div class="col-sm-12">
 										<label>Address </label>
-										<input type="text" name="address" placeholder="Address">
+										{{ form.Address }}
+									</div>
+									<div class="col-sm-6">
 										<button type="submit" class="btn-text mb-40">Order</button>
+										</div>
 									</div>
 								</div>
 							</div>

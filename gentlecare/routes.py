@@ -4,7 +4,7 @@ import urllib3, json, requests, calendar, random, string
 from datetime import datetime
 from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService, Time, OrdersCleaning
 from datetime import timedelta
-
+from gentlecare.forms import ContactDeatils
 
 response = ""
 
@@ -62,6 +62,7 @@ def cleaning():
 # checkoutmaintenance route 
 @app.route('/checkoutmaintenance', methods=['GET','POST'])
 def checkoutmaintenance():
+    form = ContactDeatils()
     if request.method == "POST" :
         IdService = request.form.get('Service')
         IdPriority = request.form.get('Priority')
@@ -76,12 +77,13 @@ def checkoutmaintenance():
         GetService = db.session.query(Service).filter_by(IdService = IdService).one()
         GetPriority = db.session.query(Priority).filter_by(IdPriority = IdPriority).one()
 
-        return render_template('checkoutmaintenance.html' , Service = GetService , Priority = GetPriority , Orderdate = Orderdate , time = time , comments = comments)
+        return render_template('checkoutmaintenance.html' , Service = GetService , Priority = GetPriority , Orderdate = Orderdate , time = time , comments = comments, form = form)
 
 
 # checkoutcleaning route 
 @app.route('/checkoutcleaning', methods=['GET','POST'])
 def checkoutcleaning():
+    form = ContactDeatils()
     if request.method == "POST" :    
         maid = request.form.get('maid') 
         hours = request.form.get('Hours')    
@@ -107,7 +109,7 @@ def checkoutcleaning():
            BookingType = "Once" 
         else :
            BookingType = "Cleaning Schedule" 
-        return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate )
+        return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate, form = form )
       
 
 # add Order Maintenance route 
