@@ -146,8 +146,10 @@ def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
         try :
             db.session.add(NewOrder)
             db.session.commit()
+            flash('Yes !! Your Order inserted successfully. Great Job ' + Happy , 'success')
             return redirect(url_for('index'))
         except Exception as err :
+            flash('No !! ' + Sad + ' Your Order did not insert successfully . Please check if you filled all fields ' , 'danger')
             return redirect(url_for('index'))
 
 
@@ -159,7 +161,9 @@ def addOrderCleaning(Service,Price,BookingType,Time,Maid,Comment,OrderDate):
         try :
             db.session.add(NewOrder)
             db.session.commit()
+            flash('Yes !! Your Order inserted successfully. Great Job ' + Happy , 'success')
             return redirect(url_for('index'))
         except Exception as err :
             print(err)
+            flash('No !! ' + Sad + ' Your Order did not insert successfully . Please check if you filled all fields ' , 'danger')
             return redirect(url_for('index'))
