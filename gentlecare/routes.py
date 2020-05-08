@@ -1,10 +1,11 @@
 from gentlecare import app, db
-from flask import redirect, url_for, render_template, request, make_response
+from flask import redirect, url_for, render_template, request, make_response, flash
 import urllib3, json, requests, calendar, random, string
 from datetime import datetime
 from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService, Time, OrdersCleaning
 from datetime import timedelta
 from gentlecare.forms import ContactDeatils
+
 
 response = ""
 
@@ -14,6 +15,7 @@ def random_string_generator(size=5,  chars=string.ascii_uppercase + string.digit
 # index route 
 @app.route('/', methods=['GET','POST'])
 def index():
+    flash('Yes !! Service inserted successfully. Great Job ')
     return render_template('index.html')
 
 # contactus route 
@@ -49,6 +51,7 @@ def maintenance():
     ServiceItems  = db.session.query(Service).join(Situation).filter(Situation.Situation == 'Enabled').all()
     PriorityItems = db.session.query(Priority).all()
     TimeItems = db.session.query(Time).all()
+    Data = request.form.get('Orderdate')
     return render_template('maintenance.html', ServiceItems = ServiceItems, PriorityItems = PriorityItems, TimeItems = TimeItems)
   
 
@@ -69,10 +72,16 @@ def checkoutmaintenance():
         Orderdate = request.form.get('Orderdate')
         time = request.form.get('time')
         comments = request.form.get('comment')
+
         if comments :
             comments = comments
         else :
             comments = "No Comment"
+        
+        if Orderdate :
+            Orderdate = Orderdate
+        else :
+            flash('Yes !! Service inserted successfully. Great Job ')
 
         GetService = db.session.query(Service).filter_by(IdService = IdService).one()
         GetPriority = db.session.query(Priority).filter_by(IdPriority = IdPriority).one()

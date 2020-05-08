@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy 
 from flask_mail import Message, Mail
 
+
 app = Flask(__name__, static_folder = 'static', template_folder='templates')
 app.config['SECRET_KEY'] = 'gentlecare'
 socket_location = "/var/run/mysqld/mysqld.sock"
@@ -17,5 +18,4 @@ app.config["MAIL_PASSWORD"] = 'your-password'
  
 mail = Mail(app)
 db = SQLAlchemy(app)
-
 from gentlecare import routes
