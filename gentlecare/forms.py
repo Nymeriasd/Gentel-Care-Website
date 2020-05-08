@@ -15,3 +15,5 @@ class ContactDeatils(FlaskForm):
 
     submit = SubmitField('Order')
 
+class Maintaince(FlaskForm):
+    Date = DateField('Orderdate', format='%Y-%m-%d')

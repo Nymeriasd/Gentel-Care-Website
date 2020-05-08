@@ -1,11 +1,14 @@
 from gentlecare import app, db
-from flask import redirect, url_for, render_template, request, make_response, flash
+from flask import redirect, url_for, render_template, request, make_response, flash, Markup
 import urllib3, json, requests, calendar, random, string
 from datetime import datetime
 from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService, Time, OrdersCleaning
-from datetime import timedelta
-from gentlecare.forms import ContactDeatils
+from datetime import date
+from gentlecare.forms import ContactDeatils, Maintaince
 
+Happy = Markup('<span>&#127881;</span>')
+Sad = Markup('<span>&#128557;</span>')
+Sassy = Markup('<span>&#128540;</span>')
 
 response = ""
 
@@ -15,7 +18,6 @@ def random_string_generator(size=5,  chars=string.ascii_uppercase + string.digit
 # index route 
 @app.route('/', methods=['GET','POST'])
 def index():
-    flash('Yes !! Service inserted successfully. Great Job ')
     return render_template('index.html')
 
 # contactus route 
@@ -48,10 +50,11 @@ def ourservices():
 # maintenance route 
 @app.route('/maintenance', methods=['GET','POST'])
 def maintenance():
+    form = Maintaince()
     ServiceItems  = db.session.query(Service).join(Situation).filter(Situation.Situation == 'Enabled').all()
     PriorityItems = db.session.query(Priority).all()
     TimeItems = db.session.query(Time).all()
-    Data = request.form.get('Orderdate')
+
     return render_template('maintenance.html', ServiceItems = ServiceItems, PriorityItems = PriorityItems, TimeItems = TimeItems)
   
 
@@ -81,7 +84,13 @@ def checkoutmaintenance():
         if Orderdate :
             Orderdate = Orderdate
         else :
-            flash('Yes !! Service inserted successfully. Great Job ')
+            form = Maintaince()
+            ServiceItems  = db.session.query(Service).join(Situation).filter(Situation.Situation == 'Enabled').all()
+            PriorityItems = db.session.query(Priority).all()
+            TimeItems = db.session.query(Time).all()
+
+            flash('No !! ' + Sad + ' Your Order did not insert successfully . Please check if you filled all fields ' , 'danger')
+            return render_template('maintenance.html', ServiceItems = ServiceItems, PriorityItems = PriorityItems, TimeItems = TimeItems)
 
         GetService = db.session.query(Service).filter_by(IdService = IdService).one()
         GetPriority = db.session.query(Priority).filter_by(IdPriority = IdPriority).one()
@@ -126,8 +135,6 @@ def checkoutcleaning():
 @app.route('/checkoutmaintenance/<int:IdService>/<int:IdPriority>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
 def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
     if request.method == "POST" :
-        name  = request.form.get('FirstName')
-        print(name)
         NewOrder = OrdersMaintenance(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('FirstName'), LastName = request.form.get('LastName'), PhoneNumber = request.form.get('PhoneNumber'), Email = request.form.get('Email'), Address = request.form.get('Address'), IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment)
         try :
             db.session.add(NewOrder)
