@@ -9,6 +9,15 @@
 						<div class="col-lg-8" style="box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);">
 							<div class="check_form_left common_input">
 								<div class="heading-box pb-30" style="padding-top: 30px;">
+									{% with messages = get_flashed_messages(with_categories=true) %}
+									{% if messages %}
+									  {% for category, message in messages %}
+										<div class="alert alert-{{ category }}">
+										  {{ message }}
+										</div>
+									  {% endfor %}
+									{% endif %}
+								  {% endwith %}
 									<h2><span>Service </span> Details</h2>
 									<span class="b-line l-left"></span>
 								</div>

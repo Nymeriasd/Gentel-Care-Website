@@ -102,6 +102,7 @@ def checkoutmaintenance():
 @app.route('/checkoutcleaning', methods=['GET','POST'])
 def checkoutcleaning():
     form = ContactDeatils()
+    ExtraServiceItems = db.session.query(ExtraService).join(Situation).filter(Situation.Situation == 'Enabled').all()
     if form.validate_on_submit :
         if request.method == "POST" :    
             maid = request.form.get('maid') 
@@ -109,7 +110,7 @@ def checkoutcleaning():
             OnceDate = request.form.get('OnceDate')
             StartDate = request.form.get('Startdate')
             EndDate = request.form.get('Enddate')
-            ExtraService = request.form.get('extraservice')
+            # ExtraServiceDetails = request.form.get('extraservice')
             Price = request.form.get('priceforextra')
             Service = request.form.get('extratext')
             comments = request.form.get('comment')
@@ -128,6 +129,12 @@ def checkoutcleaning():
                 BookingType = "Once" 
             else :
                 BookingType = "Cleaning Schedule" 
+
+            if OnceDate or StartDate or EndDate :
+                print('FINE')
+            else:
+                flash('No !! ' + Sad + ' Your Order did not insert successfully . Please check if you filled all fields ' , 'danger')
+                return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems)
             return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate, form = form )
       
 
