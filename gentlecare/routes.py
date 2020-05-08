@@ -119,7 +119,7 @@ def checkoutcleaning():
                 Service = Service
             else :
                 Service = "No Extra Service"
-                
+
             if comments :
                 comments = comments
             else :
@@ -140,6 +140,7 @@ def checkoutcleaning():
             else:
                 flash('No !! ' + Sad + ' Your Order did not insert successfully . Please check if you filled all fields ' , 'danger')
                 return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems)
+                
             return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate, form = form )
       
 
