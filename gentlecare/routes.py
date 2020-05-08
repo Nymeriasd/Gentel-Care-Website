@@ -110,11 +110,16 @@ def checkoutcleaning():
             OnceDate = request.form.get('OnceDate')
             StartDate = request.form.get('Startdate')
             EndDate = request.form.get('Enddate')
-            # ExtraServiceDetails = request.form.get('extraservice')
+            ExtraServiceDetails = request.form.get('extraservice')
             Price = request.form.get('priceforextra')
             Service = request.form.get('extratext')
             comments = request.form.get('comment')
 
+            if Service :
+                Service = Service
+            else :
+                Service = "No Extra Service"
+                
             if comments :
                 comments = comments
             else :
