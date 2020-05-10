@@ -40,6 +40,8 @@
 								</div>
 								<div class="row">
 									<div class="col-sm-6">
+										<input id="lat" name="lat" type="hidden">
+										<input id="long" name="long" type="hidden">
 										<button type="submit" class="btn-text mb-40">Order</button>
 									</div>
 								</div>
@@ -114,4 +116,29 @@
 
 	</div>
 </section>
+
+<script>
+	var result = document.getElementById('result')
+	function getLocation(){
+		if(navigator.geolocation){
+			// result.innerHTML = "Detceting Location ...."
+			navigator.geolocation.getCurrentPosition(getlocation, getError)
+		}else{
+			// result.innerHTML = " Browser Doesnt support GeoLocation ...."
+		}
+	}
+	function getlocation(location){
+		let lat = location.coords.latitude;
+   		let long = location.coords.longitude;
+		
+		document.getElementById('lat').value = lat
+		document.getElementById('long').value = long
+	}
+	
+	function getError(error) {
+		console.log(error)
+	}
+
+	window.onload = getLocation()
+</script>
 {% endblock content %}

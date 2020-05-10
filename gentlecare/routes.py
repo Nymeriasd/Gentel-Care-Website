@@ -140,7 +140,7 @@ def checkoutcleaning():
             else:
                 flash('No !! ' + Sad + ' Your Order did not insert successfully . Please check if you filled all fields ' , 'danger')
                 return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems)
-                
+
             return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate, form = form )
       
 
@@ -148,7 +148,8 @@ def checkoutcleaning():
 @app.route('/checkoutmaintenance/<int:IdService>/<int:IdPriority>/<float:Price>/<Orderdate>/<Time>/<Comment>/add', methods=['GET','POST'])
 def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
     if request.method == "POST" :
-        NewOrder = OrdersMaintenance(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('FirstName'), LastName = request.form.get('LastName'), PhoneNumber = request.form.get('PhoneNumber'), Email = request.form.get('Email'), Address = request.form.get('Address'), IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment)
+        NewOrder = OrdersMaintenance(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('FirstName'), LastName = request.form.get('LastName'), PhoneNumber = request.form.get('PhoneNumber'), Email = request.form.get('Email'), Address = request.form.get('Address'), 
+        IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment,latit = request.form.get('lat'), lon = request.form.get('long'))
         try :
             db.session.add(NewOrder)
             db.session.commit()
@@ -163,7 +164,8 @@ def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
 @app.route('/checkoutcleaning/<Service>/<float:Price>/<BookingType>/<Time>/<Maid>/<Comment>/<OrderDate>/add', methods=['GET','POST'])
 def addOrderCleaning(Service,Price,BookingType,Time,Maid,Comment,OrderDate):
     if request.method == "POST" :
-        NewOrder = OrdersCleaning(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('FirstName'), LastName = request.form.get('LastName'), PhoneNumber = request.form.get('PhoneNumber'), Email = request.form.get('Email'), Address = request.form.get('Address'), Service =  Service, Price = Price, BookingType = BookingType, Time = Time, Maid = Maid,  Comment = Comment,  OrderDate = OrderDate, IdOrderStatus = 1)
+        NewOrder = OrdersCleaning(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('FirstName'), LastName = request.form.get('LastName'), PhoneNumber = request.form.get('PhoneNumber'), Email = request.form.get('Email'), Address = request.form.get('Address'), Service =  Service, Price = Price, 
+        BookingType = BookingType, Time = Time, Maid = Maid,  Comment = Comment,  OrderDate = OrderDate, IdOrderStatus = 1,latit = request.form.get('lat'), lon = request.form.get('long'))
         try :
             db.session.add(NewOrder)
             db.session.commit()
