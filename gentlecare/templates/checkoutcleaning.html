@@ -130,7 +130,7 @@
 	function getlocation(location){
 		let lat = location.coords.latitude;
    		let long = location.coords.longitude;
-		
+		getUserAddressBy(lat,long)
 		document.getElementById('lat').value = lat
 		document.getElementById('long').value = long
 	}
@@ -138,6 +138,19 @@
 	function getError(error) {
 		console.log(error)
 	}
+
+
+	function getUserAddressBy(lat, long) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var address = JSON.parse(this.responseText)
+				document.getElementById('Address').value = address.results[0].formatted_address
+            }
+        };
+        xhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&key=AIzaSyAaVF2b8c8-Ml6_gDTfRaESPZeZOFQDUX0", true);
+        xhttp.send();
+    }
 
 	window.onload = getLocation()
 </script>
