@@ -31,7 +31,6 @@ class Farmer(db.Model):
     LastName = db.Column(db.String(250), nullable=True)
     PhoneNumber = db.Column(db.String(250), nullable=True)
     Address = db.Column(db.String(250), nullable=True)
-    # IdCrop = db.Column(db.Integer , db.ForeignKey('crop.IdCrop'))
     Harvestime = db.Column(db.String(250), nullable=True)
     CreatedAt = db.Column(db.DateTime, nullable=False) 
 
@@ -55,15 +54,11 @@ class Business(db.Model):
 
 class Price(db.Model):
     IdPrice = db.Column(db.Integer, primary_key=True)
-    # IdCrop = db.Column(db.Integer, db.ForeignKey('crop.IdCrop'))
     IdService = db.Column(db.Integer, db.ForeignKey('Service.IdService'))
     IdQty = db.Column(db.Integer, db.ForeignKey('quantity.IdQty'))
     IdUser  = db.Column(db.Integer, db.ForeignKey('users.IdUser'))
     Price  = db.Column(db.String(250), nullable=True)
     CreatedAt = db.Column(db.DateTime, nullable=False)
-    # crop = db.relationship("Crop", backref="Price") 
-    # Service = db.relationship("Service", backref="Price")
-    # qty = db.relationship("Quantity", backref="Price")
 
 
     def __repr__(self) :
@@ -113,13 +108,15 @@ class OrdersMaintenance(db.Model):
     Comment = db.Column(db.String(250), nullable=True)
     latit = db.Column(db.String(250), nullable=True)
     lon = db.Column(db.String(250), nullable=True)
+    IdAgent = db.Column(db.Integer, db.ForeignKey('agent.IdAgent'))
     CreatedAt = db.Column(db.DateTime, nullable=False)
 
     service = db.relationship("Service", backref="OrdersMaintenance")
     priority = db.relationship("Priority", backref="OrdersMaintenance") 
 
     def __repr__(self) :
-        return f"OrdersMaintenance('{self.IdOrder}',{self.OrderNumber}','{self.FirstName}','{self.LastName}','{self.PhoneNumber}','{self.Email}','{self.IdService}','{self.Price}','{self.IdPriority}','{self.IdOrderStatus}','{self.Ordertime}','{self.Time}','{self.latit}','{self.lon}','{self.Comment}')"        
+        return f"OrdersMaintenance('{self.IdOrder}',{self.OrderNumber}','{self.FirstName}','{self.LastName}','{self.PhoneNumber}','{self.Email}','{self.IdService}','{self.Price}','{self.IdPriority}','{self.IdOrderStatus}','{self.Ordertime}','{self.Time}','{self.latit}','{self.lon}','{self.Comment}','{self.IdAgent}')"        
+
 
 class OrderStatus(db.Model):
     IdOrderStatus = db.Column(db.Integer, primary_key=True)
@@ -155,3 +152,23 @@ class OrdersCleaning(db.Model):
 
     def __repr__(self) :
         return f"OrdersCleaning('{self.IdOrder}',{self.OrderNumber}','{self.FirstName}','{self.LastName}','{self.PhoneNumber}','{self.Email}','{self.Service}','{self.Price}','{self.Maid}','{self.OnceDate}','{self.BookingType}','{self.IdOrderStatus}','{self.Ordertime}','{self.Time}','{self.Comment}','{self.StartDate}','{self.latit}','{self.lon}','{self.EndDate}')"        
+
+
+class Agent(db.Model):
+    IdAgent = db.Column(db.Integer, primary_key=True)
+    FirstName = db.Column(db.String(250), nullable=True)
+    LastName = db.Column(db.String(250), nullable=True)
+    Password = db.Column(db.String(250), nullable=True)
+    PhoneNumber = db.Column(db.String(250), nullable=True)
+    Address = db.Column(db.String(250), nullable=True)
+    IdService = db.Column(db.Integer , db.ForeignKey('service.IdService'))
+    Enabled = db.Column(db.Integer, db.ForeignKey('situation.IdSituation'))
+    Time = db.Column(db.Integer, db.ForeignKey('time.IdTime'))
+    CreatedAt = db.Column(db.DateTime, nullable=False) 
+
+    service = db.relationship('Service',  backref="Agent")
+    time = db.relationship('Time',  backref="Agent")
+    situation = db.relationship('Situation', backref='Agent')
+
+    def __repr__(self) :
+        return f"Agent('{self.IdAgent}',{self.FirstName}','{self.LastName}','{self.Password}','{self.PhoneNumber}','{self.Address}','{self.IdService}','{self.Time}','{self.CreatedAt}')"        

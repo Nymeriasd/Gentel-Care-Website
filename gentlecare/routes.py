@@ -149,7 +149,7 @@ def checkoutcleaning():
 def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
     if request.method == "POST" :
         NewOrder = OrdersMaintenance(OrderNumber = "O"+random_string_generator(), FirstName = request.form.get('FirstName'), LastName = request.form.get('LastName'), PhoneNumber = request.form.get('PhoneNumber'), Email = request.form.get('Email'), Address = request.form.get('Address'), 
-        IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment,latit = request.form.get('lat'), lon = request.form.get('long'))
+        IdService =  IdService, IdOrderStatus = 1, Price = Price, IdPriority = IdPriority, Ordertime = Orderdate, Time = Time, Comment = Comment,latit = request.form.get('lat'), lon = request.form.get('long'), IdAgent = 0 )
         try :
             db.session.add(NewOrder)
             db.session.commit()
@@ -157,6 +157,7 @@ def addOrder(IdService,IdPriority,Price,Orderdate,Time,Comment):
             return redirect(url_for('index'))
         except Exception as err :
             flash('No !! ' + Sad + ' Your Order did not insert successfully . Please check if you filled all fields ' , 'danger')
+            print(err)
             return redirect(url_for('index'))
 
 
