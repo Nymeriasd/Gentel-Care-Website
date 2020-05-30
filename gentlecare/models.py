@@ -38,7 +38,6 @@ class Farmer(db.Model):
         return f"Farmer('{self.Idfarmer}',{self.FirstName}','{self.LastName}','{self.PhoneNumber}','{self.Address}','{self.Harvestime}','{self.CreatedAt}')"        
 
 
-
 class Business(db.Model):
     IdBusines = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.String(250), nullable=True)
