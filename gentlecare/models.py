@@ -1,6 +1,17 @@
 from gentlecare import app, db
 
 
+class CleaningPrice(db.Model):
+    IdPrice = db.Column(db.Integer, primary_key=True)
+    Name = db.Column(db.String(250), nullable=False)
+    Price = db.Column(db.String(250), nullable=False)
+    Enabled = db.Column(db.Integer, db.ForeignKey('situation.IdSituation'))
+    CreatedAt = db.Column(db.DateTime, nullable=False) 
+    situation = db.relationship('Situation', backref='CleaningPrice')
+
+    def __repr__(self) :
+        return f"CleaningPrice('{self.IdPrice}','{self.Name},'{self.Price}','{self.Enabled}','{self.CreatedAt}')"
+
 class Service(db.Model):
     IdService = db.Column(db.Integer, primary_key=True)
     Name = db.Column(db.String(250), nullable=False)
