@@ -2,7 +2,7 @@ from gentlecare import app, db
 from flask import redirect, url_for, render_template, request, make_response, flash, Markup
 import urllib3, json, requests, calendar, random, string
 from datetime import datetime
-from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService, Time, OrdersCleaning
+from gentlecare.models import Service ,Farmer, Business, Price, Situation, OrdersMaintenance, OrderStatus, Priority, ExtraService, Time, OrdersCleaning, CleaningPrice
 from datetime import date
 from gentlecare.forms import ContactDeatils, Maintaince
 
@@ -62,7 +62,9 @@ def maintenance():
 @app.route('/cleaning', methods=['GET','POST'])
 def cleaning():
     ExtraServiceItems = db.session.query(ExtraService).join(Situation).filter(Situation.Situation == 'Enabled').all()
-    return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems)
+    PricePerHour = db.session.query(CleaningPrice).filter(CleaningPrice.IdPrice == '1').all()
+    PricePerMaid = db.session.query(CleaningPrice).filter(CleaningPrice.IdPrice == '2').all()
+    return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems, PricePerHour = PricePerHour, PricePerMaid = PricePerMaid)
 
 
 # checkoutmaintenance route 
@@ -106,7 +108,7 @@ def checkoutcleaning():
     if form.validate_on_submit :
         if request.method == "POST" :    
             maid = request.form.get('maid') 
-            hours = request.form.get('Hours')    
+            hours = request.form.get('Hours')  
             OnceDate = request.form.get('OnceDate')
             StartDate = request.form.get('Startdate')
             EndDate = request.form.get('Enddate')
