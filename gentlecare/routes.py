@@ -56,15 +56,6 @@ def maintenance():
     TimeItems = db.session.query(Time).all()
 
     return render_template('maintenance.html', ServiceItems = ServiceItems, PriorityItems = PriorityItems, TimeItems = TimeItems)
-  
-
-# cleaning route 
-@app.route('/cleaning', methods=['GET','POST'])
-def cleaning():
-    ExtraServiceItems = db.session.query(ExtraService).join(Situation).filter(Situation.Situation == 'Enabled').all()
-    PricePerHour = db.session.query(CleaningPrice).filter(CleaningPrice.IdPrice == '1').all()
-    PricePerMaid = db.session.query(CleaningPrice).filter(CleaningPrice.IdPrice == '2').all()
-    return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems, PricePerHour = PricePerHour, PricePerMaid = PricePerMaid)
 
 
 # checkoutmaintenance route 
@@ -100,6 +91,16 @@ def checkoutmaintenance():
         return render_template('checkoutmaintenance.html' , Service = GetService , Priority = GetPriority , Orderdate = Orderdate , time = time , comments = comments, form = form)
 
 
+
+# cleaning route 
+@app.route('/cleaning', methods=['GET','POST'])
+def cleaning():
+    ExtraServiceItems = db.session.query(ExtraService).join(Situation).filter(Situation.Situation == 'Enabled').all()
+    PricePerHour = db.session.query(CleaningPrice).filter(CleaningPrice.IdPrice == '1').all()
+    PricePerMaid = db.session.query(CleaningPrice).filter(CleaningPrice.IdPrice == '2').all()
+    return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems, PricePerHour = PricePerHour, PricePerMaid = PricePerMaid)
+
+
 # checkoutcleaning route 
 @app.route('/checkoutcleaning', methods=['GET','POST'])
 def checkoutcleaning():
@@ -113,13 +114,17 @@ def checkoutcleaning():
             StartDate = request.form.get('Startdate')
             EndDate = request.form.get('Enddate')
             ExtraServiceDetails = request.form.get('extraservice')
-            Price = request.form.get('priceforextra')
+            Price = request.form.get('pricefinal')
+            ExtraPrice = request.form.get('extra')
+            PriceMaidHour = request.form.get('pricemaid')
+            HourText = request.form.get('HourText')
+            MaidText = request.form.get('MaidText')
             Service = request.form.get('extratext')
             comments = request.form.get('comment')
 
             if Service :
                 Service = Service
-            else :
+            else:
                 Service = "No Extra Service"
 
             if comments :
@@ -143,7 +148,7 @@ def checkoutcleaning():
                 flash('No !! ' + Sad + ' Your Order did not insert successfully . Please check if you filled all fields ' , 'danger')
                 return render_template('cleaning.html', ExtraServiceItems = ExtraServiceItems)
 
-            return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, Service = Service, comments = comments, OrderDate = OrderDate, form = form )
+            return render_template('checkoutcleaning.html', maid = maid, hours = hours, BookingType = BookingType, Price = Price, ExtraPrice = ExtraPrice, PriceMaidHour = PriceMaidHour, Service = Service, comments = comments, OrderDate = OrderDate, form = form, HourText = HourText, MaidText = MaidText )
       
 
 # add Order Maintenance route 

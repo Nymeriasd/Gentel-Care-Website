@@ -122,10 +122,11 @@
 										</li>
 										<li>
 											Selected Hours :<span id="selectedhours"></span>
-											<input id="selectedhour" name="selectedhour" type="hidden">
+											<input id="HourText" name="HourText" type="hidden">
 										</li>
 										<li>
 											Selected Maids :<span id="selectmaid"></span>
+											<input id="MaidText" name="MaidText" type="hidden">
 										</li>
 										<li>
 											Extra Services :<span id="extrasevices"></span>
@@ -145,14 +146,15 @@
 												<ul>
 													<li>
 														Total Charge :<span id="pricemaidhour"></span>
-														<input id="priceforextra" name="priceforextra" type="hidden">
+														<input id="pricemaid" name="pricemaid" type="hidden">
 													</li>
 													<li>
 														Extra Service :<span id="extraprice"></span>
+														<input id="extra" name="extra" type="hidden">
 													</li>
 													<li>
 														Total Price :<span id="totalprice"></span>
-														<input id="priceforextra" name="priceforextra" type="hidden">
+														<input id="price" name="pricefinal" type="hidden">
 													</li>
 												</ul>
 											</div>
@@ -176,14 +178,20 @@
 			var price = {{ item.Price }}
 		{% endfor %}
 		var Hours = document.getElementById("hours").value;
-		document.getElementById("selectedhours").innerText = Hours + " x " +  price +" SDG";
+		var HourText =  Hours + " x " +  price +" SDG"
+		document.getElementById("selectedhours").innerText = HourText;
+		document.getElementById("HourText").value = HourText ;
+
 		var totalhourprice = (Hours * price)
 	
 		{% for item in PricePerMaid %}
 			var price = {{ item.Price }}
 		{% endfor %}
 		var Maid = document.getElementById("maid").value;
-		document.getElementById("selectmaid").innerText = Maid + " x " +  price +" SDG";
+		var MaidText =  Maid + " x " +  price +" SDG"
+		document.getElementById("selectmaid").innerText = MaidText ; 
+		document.getElementById("MaidText").value = MaidText ;
+
 		var totalmaidprice = (Maid * price)
 
 		var sumMaidHour = (totalhourprice + totalmaidprice)
@@ -214,7 +222,9 @@
 		}, 0);
 
 		document.getElementById("extraprice").innerText = sum + " SDG";
-		document.getElementById("priceforextra").value = ( sum + totalmaidprice + totalhourprice );
+		document.getElementById("extra").value = sum ;
+		document.getElementById("pricemaid").value = sumMaidHour ;
+		document.getElementById("price").value = ( sum + totalmaidprice + totalhourprice );
 		document.getElementById("sevices").value = array_name;
 		document.getElementById("totalprice").innerText = (totalmaidprice + totalhourprice + sum) + " SDG";
 
@@ -267,6 +277,7 @@
 	getHours();
 	// getMaid();
 	// getExtraServices();
+	
 	getDate();
 	getfreq();
 	getfreqs();
