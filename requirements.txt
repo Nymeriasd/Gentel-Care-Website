@@ -21,7 +21,7 @@ oauth==1.0.1
 passlib==1.7.1
 PyMySQL==0.9.3
 pyxdg==0.26
-PyYAML==3.12
+PyYAML==5.4
 pyzmq==18.0.1
 qtconsole==4.4.4
 reportlab==3.5.55
